@@ -2006,4 +2006,57 @@ export const form = {
       ...defaultSchema,
     },
   },
+  appointment: {
+    name: 'Appointment',
+    slug: 'appointment',
+    has_list: false,
+    value: [
+      {
+        type: 'select',
+        slug: 'provider_id',
+        label: 'Choose Doctor',
+        placeholder: 'Select',
+        option_source: 'url',
+        option_url: `${process.env.TELEVET_API_URL}/providers`,
+        option_method: 'GET',
+        option_token_type: 'Bearer',
+        option_label: 'user.first_name',
+        option_slug: 'id',
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
+      },
+      {
+        type: 'radio',
+        slug: 'type',
+        label: 'Type',
+        option_default: 'teleconsult',
+        options: [
+          {
+            label: 'TeleConsult',
+            value: 'teleconsult',
+          },
+          {
+            label: 'Walkin',
+            value: 'walkin',
+          },
+        ],
+      },
+      {
+        type: 'slots',
+        slug: 'slots',
+        range: 7,
+        range_unit: 'days',
+      },
+      {
+        type: 'text',
+        slug: 'reason',
+        label: 'Reason for Consult',
+        placeholder: 'Describe',
+      },
+    ],
+  },
 };
