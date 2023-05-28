@@ -10,4 +10,5 @@ export default () => ({
     expiry: process.env.JWT_EXPIRY,
     tokentype: process.env.JWT_TOKEN_TYPE,
   },
+  televet_url: process.env.TELEVET_API_URL,
 });

@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 const defaultSchema = {
   deleted_at: {
     type: Date,
