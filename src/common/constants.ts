@@ -54,6 +54,15 @@ export class SearchEntity {
 
   @Exclude()
   to_date;
+
+  @Expose({ name: 'pet_id' })
+  pet_id;
+
+  @Expose({ name: 'owner_id' })
+  owner_id;
+
+  @Expose({ name: 'provider_id' })
+  provider_id;
 }
 
 @Exclude()

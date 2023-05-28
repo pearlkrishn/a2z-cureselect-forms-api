@@ -50,7 +50,6 @@ export class FormResourcesController {
       null,
       true,
     );
-    // return plainToInstance(CommonListEntity, { data });
     return {
       data: data?.data?.map((d) => plainToInstance(CommonEntity, d)),
       pagination: data?.pagination,
@@ -75,8 +74,6 @@ export class FormResourcesController {
       subform,
       true,
     );
-    // console.log(data);
-    // return plainToInstance(CommonListEntity, { data });
     return {
       data: data?.data?.map((d) => plainToInstance(CommonEntity, d.toObject())),
       pagination: data?.pagination,
