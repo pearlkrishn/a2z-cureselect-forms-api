@@ -115,10 +115,28 @@ export const form = {
           ],
         },
       ],
+      {
+        type: 'date',
+        format: 'YYYY-MM-DD HH:mm:ss',
+        slug: 'next_deworming_date',
+        label: 'Next Deworming Date',
+        icon: 'calendar-blank-outline',
+        placeholder: 'YYYY / MM / DD HH:MM:SS',
+        default_action: 'add',
+        default_value: 45,
+        default_unit: 'days',
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
+      },
     ],
     schema: {
       date: Date,
       time: String,
+      next_deworming_date: Date,
       ...defaultSchema,
     },
   },
@@ -157,10 +175,50 @@ export const form = {
           ],
         },
       ],
+      {
+        type: 'select',
+        slug: 'type',
+        label: 'Type',
+        placeholder: 'Select',
+        options: [
+          {
+            label: 'Anti-Rabies',
+            value: 'anti-rabies',
+          },
+          {
+            label: '9 in 1 / 8 in 1',
+            value: '9-in-1-8-in-1',
+          },
+        ],
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
+      },
+      {
+        type: 'select',
+        slug: 'vaccination',
+        label: 'Vaccination',
+        placeholder: 'Select',
+        option_source: 'url',
+        option_url: `${process.env.TELEVET_API_URL}/masters/vaccination`,
+        option_slug: 'slug',
+        option_label: 'name',
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
+      },
     ],
     schema: {
       date: Date,
       time: String,
+      type: String,
+      vaccination: String,
       ...defaultSchema,
     },
   },
