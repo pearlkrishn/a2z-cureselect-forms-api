@@ -118,6 +118,10 @@ export class CommonEntity {
 }
 
 export class CommonListEntity {
+  @Expose({ name: '_id' })
+  @Transform((v) => v.obj?._id?.toString())
+  date;
+
   @Type(() => CommonEntity)
   @Transform(({ value }) => {
     return value;

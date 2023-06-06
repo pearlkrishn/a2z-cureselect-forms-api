@@ -35,6 +35,17 @@ export class FormResourcesService {
         {
           $match: matchFilters,
         },
+        {
+          $group: {
+            _id: {
+              $dateToString: { format: '%Y-%m-%d', date: '$created_at' },
+            },
+            data: { $push: '$$ROOT' },
+          },
+        },
+        {
+          $sort: { _id: -1 },
+        },
       ];
 
       data = await new Paginator(model).aggregate(query);
@@ -49,7 +60,12 @@ export class FormResourcesService {
             $match: matchFilters,
           },
         ])
-        // .group({ _id: '$date', data: { $push: '$$ROOT' } })
+        .group({
+          _id: {
+            $dateToString: { format: '%Y-%m-%d', date: '$created_at' },
+          },
+          data: { $push: '$$ROOT' },
+        })
         .sort({ createdAt: 1 });
 
       return {
@@ -58,7 +74,7 @@ export class FormResourcesService {
     }
   }
 
-  async findOne(schema, query, populate = null) {
+  async findOne(schema, query = {}, populate = null) {
     const model = await this.helperService.getSchemaModel(schema);
     const dataQuery = model.findOne({
       deleted_at: { $exists: false },
