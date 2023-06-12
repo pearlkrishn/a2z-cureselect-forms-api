@@ -1070,6 +1070,10 @@ export const form = {
       frequency: String,
       no_of_days: String,
       reason_for_medication: String,
+      status: {
+        type: String,
+        default: 'active',
+      },
       ...defaultSchema,
     },
   },

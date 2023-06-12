@@ -30,6 +30,8 @@ export class FormResourcesService {
     };
     let data;
 
+    const classExist = await this.checkUpdateRequires(schema, matchFilters);
+
     if (pagination) {
       query.pipeline = [
         {
@@ -76,6 +78,10 @@ export class FormResourcesService {
 
   async findOne(schema, query = {}, populate = null) {
     const model = await this.helperService.getSchemaModel(schema);
+    const classExist = await this.checkUpdateRequires(schema, {
+      deleted_at: { $exists: false },
+      ...query,
+    });
     const dataQuery = model.findOne({
       deleted_at: { $exists: false },
       ...query,
@@ -161,5 +167,37 @@ export class FormResourcesService {
     }
 
     return summary;
+  }
+
+  async checkUpdateRequires(schema, filters?) {
+    switch (schema) {
+      case 'medications':
+        const model = await this.helperService.getSchemaModel(schema);
+        const existingData = await model.find(filters);
+        if (existingData?.length) {
+          for await (const medication of existingData) {
+            if (medication.status === 'expired' || !medication.no_of_days)
+              continue;
+            const setStatus =
+              new Date(medication.date).getTime() +
+                +medication.no_of_days * 24 * 60 * 60 * 1000 <
+              Date.now()
+                ? 'expired'
+                : 'active';
+            await model.updateOne(
+              { _id: medication._id },
+              {
+                $set: {
+                  status: setStatus,
+                },
+              },
+            );
+          }
+        } else {
+          return false;
+        }
+      default:
+        return false;
+    }
   }
 }
