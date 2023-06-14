@@ -75,7 +75,7 @@ export class FormResourcesController {
       true,
     );
     return {
-      data: data?.data?.map((d) => plainToInstance(CommonEntity, d.toObject())),
+      data: data?.data?.map((d) => plainToInstance(CommonListEntity, d)),
       pagination: data?.pagination,
     };
   }
