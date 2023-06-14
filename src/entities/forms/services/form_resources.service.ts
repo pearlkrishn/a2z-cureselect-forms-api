@@ -11,7 +11,7 @@ export class FormResourcesService {
 
   async create(schema, createFormDto: any, subform = null) {
     if (subform) {
-      createFormDto.type = subform;
+      createFormDto.form_type = subform;
     }
     const model = await this.helperService.getSchemaModel(schema);
     return model.create(createFormDto);
@@ -21,7 +21,7 @@ export class FormResourcesService {
     const model = await this.helperService.getSchemaModel(schema);
     let filter: any = plainToInstance(SearchEntity, query);
     if (subform) {
-      filter.type = subform;
+      filter.form_type = subform;
     }
     filter = JSON.parse(JSON.stringify(filter)); //serialize
     const matchFilters = {
@@ -173,7 +173,10 @@ export class FormResourcesService {
     switch (schema) {
       case 'medications':
         const model = await this.helperService.getSchemaModel(schema);
-        const existingData = await model.find(filters);
+        const existingData = await model.find({
+          ...filters,
+          status: { $ne: 'expired' },
+        });
         if (existingData?.length) {
           for await (const medication of existingData) {
             if (medication.status === 'expired' || !medication.no_of_days)
