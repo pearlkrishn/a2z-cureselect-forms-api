@@ -59,6 +59,12 @@ export const form = {
         slug: 'title',
         label: 'Chief Complaint',
         placeholder: 'Complaint Title',
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
       },
       {
         type: 'text',
@@ -128,12 +134,6 @@ export const form = {
         default_action: 'add',
         default_value: 45,
         default_unit: 'days',
-        validationRules: [
-          {
-            rule: 'required',
-            args: [],
-          },
-        ],
       },
     ],
     schema: {
@@ -650,6 +650,12 @@ export const form = {
         slug: 'title',
         label: 'Notes Title',
         placeholder: 'Notes Title',
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
       },
       {
         type: 'text',
@@ -708,6 +714,12 @@ export const form = {
           {
             label: 'Rashes on the Skin',
             value: 'rashes on the skin',
+          },
+        ],
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
           },
         ],
       },
@@ -791,6 +803,12 @@ export const form = {
         slug: 'name',
         label: 'Test Name',
         placeholder: 'Enter test name',
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
       },
       {
         type: 'file',
@@ -849,6 +867,12 @@ export const form = {
         slug: 'imaging_name',
         label: 'Imaging Name',
         placeholder: 'CT, MRI, X Ray, Ultrasound..',
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
       },
       {
         type: 'file',
@@ -907,12 +931,24 @@ export const form = {
         slug: 'treatment_name',
         label: 'Treatment Name',
         placeholder: 'Treatment',
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
       },
       {
         type: 'text',
         slug: 'notes',
         label: 'Notes',
         placeholder: 'Add notes',
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
       },
     ],
     schema: {
@@ -1128,6 +1164,12 @@ export const form = {
               value: 'rectal',
             },
           ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
         {
           type: 'radio',
@@ -1143,6 +1185,12 @@ export const form = {
               value: 'celsius',
             },
           ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
         {
           type: 'slider',
@@ -1150,6 +1198,12 @@ export const form = {
           label: 'Value',
           min: 0,
           max: 200,
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
         {
           type: 'radio',
@@ -1171,6 +1225,12 @@ export const form = {
             {
               label: 'High',
               value: 'high',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -1212,6 +1272,12 @@ export const form = {
           label: 'Beats Per Minute',
           min: 0,
           max: 500,
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
         {
           type: 'radio',
@@ -1233,6 +1299,12 @@ export const form = {
             {
               label: 'High',
               value: 'high',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -1274,6 +1346,12 @@ export const form = {
           label: 'Breaths Per Minute',
           min: 0,
           max: 100,
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
         {
           type: 'radio',
@@ -1295,6 +1373,12 @@ export const form = {
             {
               label: 'High',
               value: 'high',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -1334,6 +1418,7 @@ export const form = {
           type: 'select',
           slug: 'color',
           label: 'Color',
+          placeholder: 'Select a color',
           options: [
             {
               label: 'Pale',
@@ -1406,6 +1491,12 @@ export const form = {
           slug: 'height',
           label: 'Height in cm',
           placeholder: 'Enter height',
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
         {
           type: 'radio',
@@ -1468,6 +1559,12 @@ export const form = {
           slug: 'weight',
           label: 'Weight in kg',
           placeholder: 'Enter weight',
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
         {
           type: 'radio',
@@ -1837,6 +1934,12 @@ export const form = {
               value: 'condition_1', // need to check
             },
           ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
         {
           type: 'file',
@@ -1946,6 +2049,12 @@ export const form = {
               value: 'poorly_groomed',
             },
           ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
       ],
       breeder: [
@@ -1984,6 +2093,12 @@ export const form = {
           slug: 'name',
           label: 'Name',
           placeholder: 'Enter name',
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
         {
           type: 'text',
