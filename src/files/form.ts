@@ -139,6 +139,7 @@ export const form = {
     schema: {
       date: Date,
       time: String,
+      last_deworming_date: Date,
       next_deworming_date: Date,
       ...defaultSchema,
     },
@@ -216,12 +217,21 @@ export const form = {
           },
         ],
       },
+      {
+        type: 'file',
+        slug: 'attachments',
+        label: 'Attachment',
+        extensions: ['pdf', 'doc', 'png', 'jpg'],
+      },
     ],
     schema: {
       date: Date,
       time: String,
       type: String,
       vaccination: String,
+      attachments: [
+        { file_path: String, file_name: String, s3_signed_url: String },
+      ],
       ...defaultSchema,
     },
   },
@@ -706,6 +716,21 @@ export const form = {
         },
       ],
       {
+        type: 'toggle',
+        slug: 'rashes_on_the_skin',
+        label: 'Rashes on the Skin',
+        options: [
+          {
+            label: 'Yes',
+            value: 'yes',
+          },
+          {
+            label: 'No',
+            value: 'no',
+          },
+        ],
+      },
+      {
         type: 'select',
         slug: 'name_of_the_allergen',
         label: 'Name of the Allergen',
@@ -755,6 +780,7 @@ export const form = {
       date: Date,
       time: String,
       name_of_the_allergen: String,
+      rashes_on_the_skin: Boolean,
       attachment: [
         { file_path: String, file_name: String, s3_signed_url: String },
       ],
@@ -1006,24 +1032,66 @@ export const form = {
           },
         ],
       },
-      {
-        type: 'select',
-        slug: 'dose_and_strength',
-        label: 'Dose & Strength',
-        placeholder: 'Select',
-        validationRules: [
-          {
-            rule: 'required',
-            args: [],
-          },
-        ],
-        options: [
-          {
-            label: '',
-            value: '',
-          },
-        ],
-      },
+      [
+        {
+          type: 'text',
+          slug: 'dosage',
+          label: 'Dosage',
+          placeholder: 'Dosage',
+        },
+        {
+          type: 'select',
+          slug: 'strength',
+          label: 'Strength',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Caplet',
+              value: 'caplet',
+            },
+            {
+              label: 'Caplet per 20 Pounds',
+              value: 'caplet_per_20_pounds',
+            },
+            {
+              label: 'Milligram',
+              value: 'milligram',
+            },
+            {
+              label: 'Milligram per Pound',
+              value: 'milligram_per_pound',
+            },
+            {
+              label: 'Milligram per 20 Pounds',
+              value: 'milligram_per_20_pounds',
+            },
+            {
+              label: 'Millilitre',
+              value: 'millilitre',
+            },
+            {
+              label: 'Millilitre per Pound',
+              value: 'millilitre_per_pound',
+            },
+            {
+              label: 'Teaspoon',
+              value: 'teaspoon',
+            },
+            {
+              label: 'Teaspoon per 5 Pounds',
+              value: 'teaspoon_per_5_pounds',
+            },
+            {
+              label: 'Teaspoon per 20 Pounds',
+              value: 'teaspoon_per_20_pounds',
+            },
+            {
+              label: 'Tbs',
+              value: 'tbs',
+            },
+          ],
+        },
+      ],
       {
         type: 'select',
         slug: 'route',
@@ -1031,8 +1099,24 @@ export const form = {
         placeholder: 'Select',
         options: [
           {
-            label: '',
-            value: '',
+            label: 'Oral',
+            value: 'oral',
+          },
+          {
+            label: 'Parenteral',
+            value: 'parenteral',
+          },
+          {
+            label: 'Topical',
+            value: 'topical',
+          },
+          {
+            label: 'Rectal',
+            value: 'rectal',
+          },
+          {
+            label: 'Intramammary',
+            value: 'intramammary',
           },
         ],
       },
@@ -1041,10 +1125,14 @@ export const form = {
         slug: 'administration',
         label: 'Administration',
         placeholder: 'Select',
-        options: [
+        option_url: `${process.env.TELEVET_API_URL}/masters/medication/{route}`,
+        option_method: 'GET',
+        option_label: 'name',
+        option_slug: 'slug',
+        validationRules: [
           {
-            label: '',
-            value: '',
+            rule: 'required',
+            args: [],
           },
         ],
       },
@@ -1053,55 +1141,60 @@ export const form = {
         slug: 'frequency',
         label: 'Frequency',
         placeholder: 'Select',
-        validationRules: [
-          {
-            rule: 'required',
-            args: [],
-          },
-        ],
         options: [
           {
-            label: '',
-            value: '',
+            label: 'Once a Day',
+            value: 'once_a_day',
+          },
+          {
+            label: 'Twice a Day',
+            value: 'twice_a_day',
+          },
+          {
+            label: 'Four Times a Day',
+            value: 'four_times_a_day',
+          },
+          {
+            label: 'Once or Twice a Day',
+            value: 'once_or_twice_a_day',
+          },
+          {
+            label: '2 to 3 Times a Day',
+            value: '2_to_3_times_a_day',
+          },
+          {
+            label: '3 to 4 Times a Day',
+            value: '3_to_4_times_a_day',
+          },
+          {
+            label: '4 to 6 Times a Day',
+            value: '4_to_6_times_a_day',
+          },
+          {
+            label: 'More than 6 Times a Day',
+            value: 'more_than_6_times_a_day',
           },
         ],
       },
       {
-        type: 'select',
+        type: 'text',
         slug: 'no_of_days',
         label: 'No Of Days',
-        placeholder: 'Select',
-        validationRules: [
-          {
-            rule: 'required',
-            args: [],
-          },
-        ],
-        options: [
-          {
-            label: '',
-            value: '',
-          },
-        ],
+        placeholder: 'No Of Days',
       },
       {
-        type: 'select',
+        type: 'text',
         slug: 'reason_for_medication',
         label: 'Reason For Medication',
-        placeholder: 'Select',
-        options: [
-          {
-            label: '',
-            value: '',
-          },
-        ],
+        placeholder: 'Reason',
       },
     ],
     schema: {
       date: Date,
       time: String,
       medication_name: String,
-      dose_and_strength: String,
+      dosage: String,
+      strength: String,
       route: String,
       administration: String,
       frequency: String,
@@ -1727,16 +1820,11 @@ export const form = {
           slug: 'condition',
           label: 'Condition',
           placeholder: 'Select',
-          options: [
-            {
-              label: 'Condition 1', // need to check
-              value: 'condition_1',
-            },
-            {
-              label: 'Condition 2',
-              value: 'condition_2',
-            },
-          ],
+          option_source: 'url',
+          option_url: `${process.env.TELEVET_API_URL}/masters/disease`,
+          option_method: 'GET',
+          option_label: 'name',
+          option_slug: 'slug',
         },
         {
           type: 'text',
@@ -1781,12 +1869,11 @@ export const form = {
           slug: 'procedure_names',
           label: 'Procedure Names',
           placeholder: 'Select',
-          options: [
-            {
-              label: 'Procedure 1', // need to check
-              value: 'procedure_1',
-            },
-          ],
+          option_source: 'url',
+          option_url: `${process.env.TELEVET_API_URL}/masters/surgical-procedure`,
+          option_method: 'GET',
+          option_label: 'name',
+          option_slug: 'slug',
         },
         {
           type: 'text',
@@ -1924,20 +2011,282 @@ export const form = {
           },
         ],
         {
-          type: 'select',
-          slug: 'condition',
-          label: 'Condition',
+          type: 'multi-select',
+          slug: 'clinical_sign',
+          label: 'Clinical Sign',
           placeholder: 'Select',
           options: [
             {
-              label: 'Condition 1',
-              value: 'condition_1', // need to check
+              label: 'Scratching/licking/biting at self',
+              value: 'scratching_licking_biting_at_self',
+            },
+            {
+              label: 'Hair loss or poor regrowth of hair',
+              value: 'hair_loss_or_poor_regrowth_of_hair',
+            },
+            {
+              label: 'Increased redness to skin',
+              value: 'increased_redness_to_skin',
+            },
+            {
+              label: 'Small red spots, pimples, bumps, rash',
+              value: 'small_red_spots_pimples_bumps_rash',
+            },
+            {
+              label: 'Dandruff, flakiness, scaliness of skin',
+              value: 'dandruff_flakiness_scaliness_of_skin',
+            },
+            {
+              label: 'Increased odor of skin or coat',
+              value: 'increased_odor_of_skin_or_coat',
+            },
+            {
+              label: 'Crusty or scabby patches on skin',
+              value: 'crusty_or_scabby_patches_on_skin',
+            },
+            {
+              label: 'Open, raw sores',
+              value: 'open_raw_sores',
+            },
+            {
+              label: 'Areas that ooze blood or pus',
+              value: 'areas_that_ooze_blood_or_pus',
+            },
+            {
+              label: 'Eyes-redness, irritation, itching, discharge',
+              value: 'eyes_redness_irritation_itching_discharge',
+            },
+            {
+              label: 'Change in color or texture of hair',
+              value: 'change_in_color_or_texture_of_hair',
+            },
+            {
+              label: 'Darkening of areas of the skin',
+              value: 'darkening_of_areas_of_the_skin',
+            },
+            {
+              label: 'Loss of pigment of skin-black parts turn pink',
+              value: 'loss_of_pigment_of_skin_black_parts_turn_pink',
+            },
+            {
+              label: 'Ear infections',
+              value: 'ear_infections',
+            },
+            {
+              label: 'Fleas seen on pet',
+              value: 'fleas_seen_on_pet',
+            },
+            {
+              label: 'Diarrhea or loose stools',
+              value: 'diarrhea_or_loose_stools',
+            },
+            {
+              label: 'Vomiting',
+              value: 'vomiting',
+            },
+            {
+              label: 'Sneezing or wheezing',
+              value: 'sneezing_or_wheezing',
+            },
+            {
+              label: "Changes in pet's usual personality",
+              value: 'changes_in_pets_usual_personality',
+            },
+            {
+              label: "Changes in pet's usual activity level",
+              value: 'changes_in_pets_usual_activity_level',
+            },
+            {
+              label: 'Weight loss or weight gain',
+              value: 'weight_loss_or_weight_gain',
+            },
+            {
+              label: "Changes in pet's appetite",
+              value: 'changes_in_pets_appetite',
+            },
+            {
+              label: 'Changes in amount of water consumed',
+              value: 'changes_in_amount_of_water_consumed',
+            },
+            {
+              label: 'Changes in urinary habits',
+              value: 'changes_in_urinary_habits',
             },
           ],
-          validationRules: [
+        },
+        {
+          type: 'multi-select',
+          slug: 'body_area',
+          label: 'Body Area',
+          placeholder: 'Select',
+          options: [
             {
-              rule: 'required',
-              args: [],
+              label: 'Feet/paws',
+              value: 'feet_paws',
+            },
+            {
+              label: 'Legs/arms',
+              value: 'legs_arms',
+            },
+            {
+              label: 'Abdomen (belly)/genital area',
+              value: 'abdomen_belly_genital_area',
+            },
+            {
+              label: 'Armpits/chest/sides of body',
+              value: 'armpits_chest_sides_of_body',
+            },
+            {
+              label: 'Face/eyes',
+              value: 'face_eyes',
+            },
+            {
+              label: 'Ears/ear flaps',
+              value: 'ears_ear_flaps',
+            },
+            {
+              label: 'Along the back or rump',
+              value: 'along_the_back_or_rump',
+            },
+            {
+              label: 'The tail itself',
+              value: 'the_tail_itself',
+            },
+            {
+              label: 'Anal area',
+              value: 'anal_area',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'itching',
+          label: 'Itching',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Not itchy',
+              value: 'not_itchy',
+            },
+            {
+              label: 'Mildly itchy',
+              value: 'mildly_itchy',
+            },
+            {
+              label: 'Moderately itchy',
+              value: 'moderately_itchy',
+            },
+            {
+              label: 'Severely itchy',
+              value: 'severely_itchy',
+            },
+          ],
+        },
+        {
+          type: 'multi-select',
+          slug: 'treatment_or_medication',
+          label: 'Treatment or Medication',
+          placeholder: 'Select',
+          options: [
+            {
+              label:
+                'Cortisone pills or shots (steroids, Temaril, prednisone, Vetalog, anti-itch pills)',
+              value:
+                'cortisone_pills_or_shots_steroids_temaril_prednisone_vetalog_anti_itch_pills',
+            },
+            {
+              label:
+                'Antibiotics alone (with no other medication given at the same time)',
+              value:
+                'antibiotics_alone_with_no_other_medication_given_at_the_same_time',
+            },
+            {
+              label: 'Antihistamine (Benadryl, Zyrtec, etc.)',
+              value: 'antihistamine_benadryl_zyrtec_etc',
+            },
+            {
+              label: 'Antifungal medication (Nizoral, etc.)',
+              value: 'antifungal_medication_nizoral_etc',
+            },
+            {
+              label: 'Cyclosporine (Atopica)',
+              value: 'cyclosporine_atopica',
+            },
+            {
+              label: 'Apoquel',
+              value: 'apoquel',
+            },
+            {
+              label: 'Allergy shots or drops',
+              value: 'allergy_shots_or_drops',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'cause',
+          label: 'Cause',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Environmental Allergies',
+              value: 'environmental_allergies',
+            },
+            {
+              label: 'Food Allergies',
+              value: 'food_allergies',
+            },
+            {
+              label: 'Folliculitis',
+              value: 'folliculitis',
+            },
+            {
+              label: 'Impetigo',
+              value: 'impetigo',
+            },
+            {
+              label: 'Ringworm',
+              value: 'ringworm',
+            },
+            {
+              label: 'Mange',
+              value: 'mange',
+            },
+            {
+              label: 'Yeast Infections',
+              value: 'yeast_infections',
+            },
+            {
+              label: 'Ticks and Fleas',
+              value: 'ticks_and_fleas',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'improvement',
+          label: 'Improvement',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'None',
+              value: 'none',
+            },
+            {
+              label: 'Mild',
+              value: 'mild',
+            },
+            {
+              label: 'Moderate',
+              value: 'moderate',
+            },
+            {
+              label: 'Good',
+              value: 'good',
+            },
+            {
+              label: 'Cured',
+              value: 'cured',
             },
           ],
         },
@@ -2107,8 +2456,578 @@ export const form = {
           placeholder: 'Add remarks..',
         },
       ],
-      behavior: [],
-      steroid: [],
+      behavior: [
+        [
+          {
+            type: 'date',
+            format: 'YYYY-MM-DD',
+            slug: 'date',
+            label: 'Date',
+            icon: 'calendar-blank-outline',
+            placeholder: 'YYYY / MM / DD',
+            validationRules: [
+              {
+                rule: 'required',
+                args: [],
+              },
+            ],
+          },
+          {
+            type: 'time',
+            format: 'HH:mm',
+            slug: 'time',
+            label: 'Time',
+            icon: 'clock-outline',
+            placeholder: 'HH:MM',
+            validationRules: [
+              {
+                rule: 'required',
+                args: [],
+              },
+            ],
+          },
+        ],
+        {
+          type: 'select',
+          slug: 'house_soiling',
+          label: 'House Soiling',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Frequently',
+              value: 'frequently',
+            },
+            {
+              label: 'Never',
+              value: 'never',
+            },
+            {
+              label: 'Sometimes',
+              value: 'sometimes',
+            },
+            {
+              label: "Don't know",
+              value: 'dont_know',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'excessive_barking',
+          label: 'Excessive Barking',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Frequently',
+              value: 'frequently',
+            },
+            {
+              label: 'Never',
+              value: 'never',
+            },
+            {
+              label: 'Sometimes',
+              value: 'sometimes',
+            },
+            {
+              label: "Don't know",
+              value: 'dont_know',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'consuming_non_food_objects',
+          label: 'Consuming Non food objects',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Frequently',
+              value: 'frequently',
+            },
+            {
+              label: 'Never',
+              value: 'never',
+            },
+            {
+              label: 'Sometimes',
+              value: 'sometimes',
+            },
+            {
+              label: "Don't know",
+              value: 'dont_know',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'reaction_to_strangers',
+          label: 'Reaction to strangers',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Happy',
+              value: 'happy',
+            },
+            {
+              label: 'Neutral',
+              value: 'neutral',
+            },
+            {
+              label: 'Fearful & Anxious',
+              value: 'fearful_and_anxious',
+            },
+            {
+              label: 'Barks & Growls',
+              value: 'barks_and_growls',
+            },
+            {
+              label: 'Snaps or bites',
+              value: 'Snaps_or_bites',
+            },
+            {
+              label: 'Attacks',
+              value: 'attacks',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'reaction_to_other_animals',
+          label: 'Reaction to other animals',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Happy',
+              value: 'happy',
+            },
+            {
+              label: 'Neutral',
+              value: 'neutral',
+            },
+            {
+              label: 'Fearful & Anxious',
+              value: 'fearful_and_anxious',
+            },
+            {
+              label: 'Barks & Growls',
+              value: 'barks_and_growls',
+            },
+            {
+              label: 'Snaps or bites',
+              value: 'Snaps_or_bites',
+            },
+            {
+              label: 'Attacks',
+              value: 'attacks',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'off_the_leash',
+          label: 'Off the leash',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Happy',
+              value: 'happy',
+            },
+            {
+              label: 'Neutral',
+              value: 'neutral',
+            },
+            {
+              label: 'Fearful & Anxious',
+              value: 'fearful_and_anxious',
+            },
+            {
+              label: 'Barks & Growls',
+              value: 'barks_and_growls',
+            },
+            {
+              label: 'Snaps or bites',
+              value: 'Snaps_or_bites',
+            },
+            {
+              label: 'Attacks',
+              value: 'attacks',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'veterinary_visits',
+          label: 'Veterinary visits',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Happy',
+              value: 'happy',
+            },
+            {
+              label: 'Neutral',
+              value: 'neutral',
+            },
+            {
+              label: 'Fearful & Anxious',
+              value: 'fearful_and_anxious',
+            },
+            {
+              label: 'Barks & Growls',
+              value: 'barks_and_growls',
+            },
+            {
+              label: 'Snaps or bites',
+              value: 'Snaps_or_bites',
+            },
+            {
+              label: 'Attacks',
+              value: 'attacks',
+            },
+            {
+              label: 'Confused',
+              value: 'confused',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'being_left_alone',
+          label: 'Being left alone',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Happy',
+              value: 'happy',
+            },
+            {
+              label: 'Neutral',
+              value: 'neutral',
+            },
+            {
+              label: 'Fearful & Anxious',
+              value: 'fearful_and_anxious',
+            },
+            {
+              label: 'Barks & Growls',
+              value: 'barks_and_growls',
+            },
+            {
+              label: 'Snaps or bites',
+              value: 'Snaps_or_bites',
+            },
+            {
+              label: 'Confused',
+              value: 'confused',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'in_vehicles',
+          label: 'In vehicles',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Happy',
+              value: 'happy',
+            },
+            {
+              label: 'Neutral',
+              value: 'neutral',
+            },
+            {
+              label: 'Fearful & Anxious',
+              value: 'fearful_and_anxious',
+            },
+            {
+              label: 'Barks & Growls',
+              value: 'barks_and_growls',
+            },
+            {
+              label: 'Snaps or bites',
+              value: 'Snaps_or_bites',
+            },
+            {
+              label: 'Confused',
+              value: 'confused',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'loud_noises',
+          label: 'Loud Noises',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Happy',
+              value: 'happy',
+            },
+            {
+              label: 'Neutral',
+              value: 'neutral',
+            },
+            {
+              label: 'Fearful & Anxious',
+              value: 'fearful_and_anxious',
+            },
+            {
+              label: 'Barks & Growls',
+              value: 'barks_and_growls',
+            },
+            {
+              label: 'Snaps or bites',
+              value: 'Snaps_or_bites',
+            },
+            {
+              label: 'Destructive',
+              value: 'destructive',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'bathing',
+          label: 'Bathing',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Cooperative',
+              value: 'cooperative',
+            },
+            {
+              label: 'Uncooperative',
+              value: 'uncooperative',
+            },
+          ],
+        },
+        {
+          type: 'select',
+          slug: 'on_a_leash_or_collar',
+          label: 'On a leash or collar',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Happy',
+              value: 'happy',
+            },
+            {
+              label: 'Neutral',
+              value: 'neutral',
+            },
+            {
+              label: 'Fearful & Anxious',
+              value: 'fearful_and_anxious',
+            },
+            {
+              label: 'Barks & Growls',
+              value: 'barks_and_growls',
+            },
+            {
+              label: 'Snaps or bites',
+              value: 'Snaps_or_bites',
+            },
+            {
+              label: 'Confused',
+              value: 'confused',
+            },
+          ],
+        },
+      ],
+      steroid: [
+        [
+          {
+            type: 'date',
+            format: 'YYYY-MM-DD',
+            slug: 'date',
+            label: 'Date',
+            icon: 'calendar-blank-outline',
+            placeholder: 'YYYY / MM / DD',
+            validationRules: [
+              {
+                rule: 'required',
+                args: [],
+              },
+            ],
+          },
+          {
+            type: 'time',
+            format: 'HH:mm',
+            slug: 'time',
+            label: 'Time',
+            icon: 'clock-outline',
+            placeholder: 'HH:MM',
+            validationRules: [
+              {
+                rule: 'required',
+                args: [],
+              },
+            ],
+          },
+        ],
+        {
+          type: 'text',
+          slug: 'name',
+          label: 'Name',
+          placeholder: 'Steroid name',
+        },
+        {
+          type: 'select',
+          slug: 'type',
+          label: 'Type',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Capsules',
+              value: 'capsules',
+            },
+            {
+              label: 'Chewables',
+              value: 'chewables',
+            },
+            {
+              label: 'liquids',
+              value: 'liquids',
+            },
+            {
+              label: 'Tablets',
+              value: 'tablets',
+            },
+            {
+              label: 'Transdermals',
+              value: 'transdermals',
+            },
+          ],
+        },
+        [
+          {
+            type: 'text',
+            slug: 'dosage',
+            label: 'Dosage',
+            placeholder: 'Dosage',
+          },
+          {
+            type: 'select',
+            slug: 'strength',
+            label: 'Strength',
+            placeholder: 'Select',
+            options: [
+              {
+                label: 'Caplet',
+                value: 'caplet',
+              },
+              {
+                label: 'Caplet per 20 Pounds',
+                value: 'caplet_per_20_pounds',
+              },
+              {
+                label: 'Milligram',
+                value: 'milligram',
+              },
+              {
+                label: 'Milligram per Pound',
+                value: 'milligram_per_pound',
+              },
+              {
+                label: 'Milligram per 20 Pounds',
+                value: 'milligram_per_20_pounds',
+              },
+              {
+                label: 'Millilitre',
+                value: 'millilitre',
+              },
+              {
+                label: 'Millilitre per Pound',
+                value: 'millilitre_per_pound',
+              },
+              {
+                label: 'Teaspoon',
+                value: 'teaspoon',
+              },
+              {
+                label: 'Teaspoon per 5 Pounds',
+                value: 'teaspoon_per_5_pounds',
+              },
+              {
+                label: 'Teaspoon per 20 Pounds',
+                value: 'teaspoon_per_20_pounds',
+              },
+              {
+                label: 'Tbs',
+                value: 'tbs',
+              },
+            ],
+          },
+        ],
+        {
+          type: 'select',
+          slug: 'frequency',
+          label: 'Frequency',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Once a Day',
+              value: 'once_a_day',
+            },
+            {
+              label: 'Twice a Day',
+              value: 'twice_a_day',
+            },
+            {
+              label: 'Four Times a Day',
+              value: 'four_times_a_day',
+            },
+            {
+              label: 'Once or Twice a Day',
+              value: 'once_or_twice_a_day',
+            },
+            {
+              label: '2 to 3 Times a Day',
+              value: '2_to_3_times_a_day',
+            },
+            {
+              label: '3 to 4 Times a Day',
+              value: '3_to_4_times_a_day',
+            },
+            {
+              label: '4 to 6 Times a Day',
+              value: '4_to_6_times_a_day',
+            },
+            {
+              label: 'More than 6 Times a Day',
+              value: 'more_than_6_times_a_day',
+            },
+          ],
+        },
+        {
+          type: 'text',
+          slug: 'no_of_times_treated_past_year',
+          label: 'No of times treated past year',
+          placeholder: 'No of times treated past year',
+        },
+        {
+          type: 'select',
+          slug: 'response_to_steroids',
+          label: 'Response to steroids',
+          placeholder: 'Select',
+          options: [
+            {
+              label: 'Excellent Response',
+              value: 'excellent_response',
+            },
+            {
+              label: 'No Response',
+              value: 'no_response',
+            },
+            {
+              label: 'Temporary Response',
+              value: 'temporary_response',
+            },
+          ],
+        },
+      ],
     },
     schema: {
       date: Date,
@@ -2127,7 +3046,31 @@ export const form = {
       breeder: String,
       name: String,
       remarks: String,
+      dosage: String,
+      no_of_times_treated_past_year: String,
+      response_to_steroids: String,
+      strength: String,
+      frequency: String,
+      house_soiling: String,
+      excessive_barking: String,
+      consuming_non_food_objects: String,
+      reaction_to_strangers: String,
+      reaction_to_other_animals: String,
+      off_the_leash: String,
+      veterinary_visits: String,
+      being_left_alone: String,
+      in_vehicles: String,
+      loud_noises: String,
+      type: String,
       form_type: String,
+      bathing: String,
+      clinical_sign: [String],
+      body_area: [String],
+      itching: String,
+      treatment_or_medication: [String],
+      cause: String,
+      improvement: String,
+      on_a_leash_or_collar: String,
       ...defaultSchema,
     },
   },
