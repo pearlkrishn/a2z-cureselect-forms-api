@@ -73,7 +73,7 @@ export const form = {
       },
       {
         type: 'file',
-        slug: 'attachments',
+        slug: 'attachment',
         label: 'Attachment',
         extensions: ['pdf', 'doc', 'png', 'jpg'],
       },
@@ -83,7 +83,7 @@ export const form = {
       time: String,
       title: String,
       description: String,
-      attachments: [
+      attachment: [
         { file_path: String, file_name: String, s3_signed_url: String },
       ],
       ...defaultSchema,
@@ -219,7 +219,7 @@ export const form = {
       },
       {
         type: 'file',
-        slug: 'attachments',
+        slug: 'attachment',
         label: 'Attachment',
         extensions: ['pdf', 'doc', 'png', 'jpg'],
       },
@@ -229,7 +229,7 @@ export const form = {
       time: String,
       type: String,
       vaccination: String,
-      attachments: [
+      attachment: [
         { file_path: String, file_name: String, s3_signed_url: String },
       ],
       ...defaultSchema,
@@ -732,13 +732,41 @@ export const form = {
       },
       {
         type: 'select',
-        slug: 'name_of_the_allergen',
-        label: 'Name of the Allergen',
+        slug: 'cause_of_allergy',
+        label: 'Cause of Allergy',
         placeholder: 'Select',
         options: [
           {
-            label: 'Rashes on the Skin',
-            value: 'rashes on the skin',
+            label: 'Medication',
+            value: 'medication',
+          },
+          {
+            label: 'Environmental',
+            value: 'environmental',
+          },
+          {
+            label: 'Food',
+            value: 'food',
+          },
+          {
+            label: 'Shampoo/Products',
+            value: 'shampoo_or_products',
+          },
+          {
+            label: 'Parasites',
+            value: 'parasites',
+          },
+          {
+            label: 'Accessories',
+            value: 'accessories',
+          },
+          {
+            label: 'Seasonal',
+            value: 'seasonal',
+          },
+          {
+            label: 'Unknown',
+            value: 'unknown',
           },
         ],
         validationRules: [
@@ -749,23 +777,160 @@ export const form = {
         ],
       },
       {
-        type: 'file',
-        slug: 'attachment',
-        label: 'Attachment',
-        extensions: ['pdf', 'doc', 'png', 'jpg'],
-      },
-      {
-        type: 'checkbox',
-        slug: 'symptoms',
-        label: 'Symptoms',
+        type: 'select',
+        slug: 'severity',
+        label: 'Severity',
+        placeholder: 'Select',
         options: [
           {
-            slug: 'itching',
-            label: 'Itching',
+            label: 'Mild',
+            value: 'mild',
           },
           {
-            slug: 'bleeding',
-            label: 'Bleeding',
+            label: 'Moderate',
+            value: 'moderate',
+          },
+          {
+            label: 'Severe',
+            value: 'severe',
+          },
+          {
+            label: 'Requires Hospitalization',
+            value: 'requires_hospitalization',
+          },
+        ],
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
+      },
+      {
+        type: 'select',
+        slug: 'reaction',
+        label: 'Reaction',
+        placeholder: 'Select',
+        options: [
+          {
+            label: 'Itching',
+            value: 'itching',
+          },
+          {
+            label: 'Rashes',
+            value: 'rashes',
+          },
+          {
+            label: 'Hives',
+            value: 'hives',
+          },
+          {
+            label: 'Hairloss',
+            value: 'hairloss',
+          },
+          {
+            label: 'Watering eyes',
+            value: 'watering_eyes',
+          },
+          {
+            label: 'Sneezing',
+            value: 'sneezing',
+          },
+          {
+            label: 'Difficulty breathing',
+            value: 'difficulty_breathing',
+          },
+          {
+            label: 'Wheezing',
+            value: 'wheezing',
+          },
+          {
+            label: 'Retching',
+            value: 'retching',
+          },
+          {
+            label: 'Hyperventilation',
+            value: 'hyperventilation',
+          },
+          {
+            label: 'Swelling of the face, ears, lips, eyelids, or earflaps',
+            value: 'swelling_of_the_face_ears_lips_eyelids_or_earflaps',
+          },
+          {
+            label: 'Red, inflamed skin',
+            value: 'red_inflamed_skin',
+          },
+          {
+            label: 'Diarrhea',
+            value: 'diarrhea',
+          },
+          {
+            label: 'Vomiting',
+            value: 'vomiting',
+          },
+          {
+            label: 'Itchy ears',
+            value: 'itchy_ears',
+          },
+          {
+            label: 'Chronic ear infections',
+            value: 'chronic_ear_infections',
+          },
+          {
+            label: 'Itchy, runny eyes',
+            value: 'itchy_runny_eyes',
+          },
+          {
+            label: 'Constant licking',
+            value: 'constant_licking',
+          },
+        ],
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
+      },
+      {
+        type: 'select',
+        slug: 'treated_by',
+        label: 'Treated By',
+        placeholder: 'Select',
+        options: [
+          {
+            label: 'Chlorpheniramine',
+            value: 'chlorpheniramine',
+          },
+          {
+            label: 'Diphenhydramine',
+            value: 'diphenhydramine',
+          },
+          {
+            label: 'Ceterizine',
+            value: 'ceterizine',
+          },
+          {
+            label: 'Clemastine',
+            value: 'clemastine',
+          },
+          {
+            label: 'Hydroxyzine',
+            value: 'hydroxyzine',
+          },
+          {
+            label: 'Amitriptyline',
+            value: 'amitriptyline',
+          },
+          {
+            label: 'Cyproheptadine',
+            value: 'cyproheptadine',
+          },
+        ],
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
           },
         ],
       },
@@ -775,12 +940,21 @@ export const form = {
         label: 'Notes',
         placeholder: 'Add notes',
       },
+      {
+        type: 'file',
+        slug: 'attachment',
+        label: 'Attachment',
+        extensions: ['pdf', 'doc', 'png', 'jpg'],
+      },
     ],
     schema: {
       date: Date,
       time: String,
-      name_of_the_allergen: String,
+      cause_of_allergy: String,
       rashes_on_the_skin: Boolean,
+      severity: String,
+      reaction: String,
+      treated_by: String,
       attachment: [
         { file_path: String, file_name: String, s3_signed_url: String },
       ],
@@ -2291,16 +2465,16 @@ export const form = {
           ],
         },
         {
-          type: 'file',
-          slug: 'attachment',
-          label: 'Attachment',
-          extensions: ['pdf', 'doc', 'png', 'jpg'],
-        },
-        {
           type: 'text',
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes..',
+        },
+        {
+          type: 'file',
+          slug: 'attachment',
+          label: 'Attachment',
+          extensions: ['pdf', 'doc', 'png', 'jpg'],
         },
       ],
       diet: [
