@@ -12,7 +12,11 @@ import {
 import { FormResourcesService } from '../services/form_resources.service';
 import { UpdateFormDto } from '../dto/update-form.dto';
 import { plainToInstance } from 'class-transformer';
-import { CommonEntity, CommonListEntity } from 'src/common/constants';
+import {
+  CommonEntity,
+  CommonListEntity,
+  GroupedListEntity,
+} from 'src/common/constants';
 import { ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from 'src/modules/auth/auth.guard';
 
@@ -50,8 +54,13 @@ export class FormResourcesController {
       null,
       true,
     );
+
     return {
-      data: data?.data?.map((d) => plainToInstance(CommonListEntity, d)),
+      data: data?.data?.map((d) =>
+        query?.group_by
+          ? plainToInstance(GroupedListEntity, d)
+          : plainToInstance(CommonListEntity, d),
+      ),
       pagination: data?.pagination,
     };
   }

@@ -53,6 +53,9 @@ export class SearchEntity {
   from_date;
 
   @Exclude()
+  group_by;
+
+  @Exclude()
   to_date;
 
   @Expose({ name: 'pet_id' })
@@ -119,8 +122,34 @@ export class CommonEntity {
 
 export class CommonListEntity {
   @Expose({ name: '_id' })
-  @Transform((v) => v.obj?._id?.toString())
+  @Transform((v) => {
+    console.log(v.obj);
+    if (!v.obj?._id?.grouped_by) {
+      return v.obj?._id?.toString();
+    }
+
+    return undefined;
+  })
   date;
+
+  @Type(() => CommonEntity)
+  @Transform(({ value }) => {
+    return value;
+  })
+  data: [CommonEntity];
+}
+
+export class GroupedListEntity {
+  @Expose({ name: '_id' })
+  @Transform((v) => {
+    console.log(v.obj);
+    if (v.obj?._id?.grouped_by) {
+      return v.obj?._id?.grouped_by;
+    }
+
+    return undefined;
+  })
+  grouped_by;
 
   @Type(() => CommonEntity)
   @Transform(({ value }) => {

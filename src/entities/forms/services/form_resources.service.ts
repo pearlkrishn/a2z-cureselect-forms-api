@@ -20,9 +20,22 @@ export class FormResourcesService {
   async findAll(schema, query: any = {}, subform?, pagination?) {
     const model = await this.helperService.getSchemaModel(schema);
     let filter: any = plainToInstance(SearchEntity, query);
+    let groupBy;
+
     if (subform) {
       filter.form_type = subform;
     }
+
+    if (query?.group_by) {
+      groupBy = {
+        grouped_by: `$${query.group_by}`,
+      };
+    } else {
+      groupBy = {
+        $dateToString: { format: '%Y-%m-%d', date: '$created_at' },
+      };
+    }
+
     filter = JSON.parse(JSON.stringify(filter)); //serialize
     const matchFilters = {
       deleted_at: { $exists: false },
@@ -39,9 +52,7 @@ export class FormResourcesService {
         },
         {
           $group: {
-            _id: {
-              $dateToString: { format: '%Y-%m-%d', date: '$created_at' },
-            },
+            _id: groupBy,
             data: { $push: '$$ROOT' },
           },
         },
@@ -63,9 +74,7 @@ export class FormResourcesService {
           },
         ])
         .group({
-          _id: {
-            $dateToString: { format: '%Y-%m-%d', date: '$created_at' },
-          },
+          _id: groupBy,
           data: { $push: '$$ROOT' },
         })
         .sort({ createdAt: 1 });
