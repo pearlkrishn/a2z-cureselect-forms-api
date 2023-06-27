@@ -141,7 +141,10 @@ export const form = {
       time: String,
       last_deworming_date: Date,
       next_deworming_date: Date,
-      dewormings: [{ date: Date, time: String, next_deworming_date: Date }],
+      status: String,
+      dewormings: [
+        { date: Date, time: String, next_deworming_date: Date, status: String },
+      ],
       ...defaultSchema,
     },
   },

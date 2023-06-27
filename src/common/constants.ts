@@ -123,7 +123,6 @@ export class CommonEntity {
 export class CommonListEntity {
   @Expose({ name: '_id' })
   @Transform((v) => {
-    console.log(v.obj);
     if (!v.obj?._id?.grouped_by) {
       return v.obj?._id?.toString();
     }
@@ -142,7 +141,6 @@ export class CommonListEntity {
 export class GroupedListEntity {
   @Expose({ name: '_id' })
   @Transform((v) => {
-    console.log(v.obj);
     if (v.obj?._id?.grouped_by) {
       return v.obj?._id?.grouped_by;
     }
