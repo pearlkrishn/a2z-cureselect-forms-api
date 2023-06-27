@@ -34,13 +34,13 @@ export class SearchEntity {
       }
       if (v.obj.to_date && !v.obj.from_date) {
         return {
-          $lte: v.obj.to_date,
+          $lte: new Date(v.obj.to_date),
         };
       }
       if (v.obj.from_date && v.obj.to_date) {
         return {
-          $gte: v.obj.from_date,
-          $lte: v.obj.to_date,
+          $gte: new Date(v.obj.from_date),
+          $lte: new Date(v.obj.to_date),
         };
       }
     } else {
