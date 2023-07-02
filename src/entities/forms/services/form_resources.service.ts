@@ -19,11 +19,13 @@ export class FormResourcesService {
 
   async findAll(schema, query: any = {}, subform?, pagination?) {
     const model = await this.helperService.getSchemaModel(schema);
-    let filter: any = plainToInstance(SearchEntity, query);
+    let filter = plainToInstance(SearchEntity, query, {
+      exposeUnsetFields: false,
+    });
     let groupBy;
 
     if (subform) {
-      filter.form_type = subform;
+      filter['form_type'] = subform;
     }
 
     if (query?.group_by) {
@@ -37,6 +39,22 @@ export class FormResourcesService {
     }
 
     filter = JSON.parse(JSON.stringify(filter)); //serialize
+
+    if (query.from_date && query.to_date) {
+      filter.created_at = {
+        $gte: new Date(query.from_date),
+        $lte: new Date(query.to_date),
+      };
+    } else if (query.from_date) {
+      filter.created_at = {
+        $gte: new Date(query.from_date),
+      };
+    } else if (query.to_date) {
+      filter.created_at = {
+        $lte: new Date(query.to_date),
+      };
+    }
+
     const matchFilters = {
       deleted_at: { $exists: false },
       ...filter,
