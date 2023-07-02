@@ -1805,6 +1805,12 @@ export const form = {
               value: 'inflamed',
             },
           ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
         {
           type: 'toggle',
@@ -1888,6 +1894,12 @@ export const form = {
               value: 'high',
             },
           ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
         },
       ],
       weight: [
@@ -1954,6 +1966,12 @@ export const form = {
             {
               label: 'High',
               value: 'high',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -2030,6 +2048,12 @@ export const form = {
             {
               label: 'High',
               value: 'high',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
