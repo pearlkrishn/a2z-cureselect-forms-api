@@ -262,6 +262,7 @@ export const form = {
             interval: 365,
           },
         ],
+        custom: true,
         validationRules: [
           {
             rule: 'required',
@@ -377,11 +378,12 @@ export const form = {
       ],
       mentation: [
         {
-          type: 'checkbox', // multiselect
+          type: 'picker', // multiselect
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/mentation`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -400,11 +402,12 @@ export const form = {
       ],
       posture_and_gait: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/posture-and-gait`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -423,11 +426,12 @@ export const form = {
       ],
       hydration_status: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/hydration-status`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -446,11 +450,12 @@ export const form = {
       ],
       coat_and_skin: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/coat-and-skin`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -469,11 +474,12 @@ export const form = {
       ],
       eyes: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/eyes`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -492,11 +498,12 @@ export const form = {
       ],
       ears: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/ears`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -515,11 +522,12 @@ export const form = {
       ],
       nose_and_throat: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/nose-and-throat`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -538,11 +546,12 @@ export const form = {
       ],
       oral_cavity: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/oral-cavity`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -561,11 +570,12 @@ export const form = {
       ],
       nervous_system: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/nervous-system`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -584,11 +594,12 @@ export const form = {
       ],
       gastrointestinal_system: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/gastrointestinal-system`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -607,11 +618,12 @@ export const form = {
       ],
       rectal_examination: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/rectal-examination`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -630,11 +642,12 @@ export const form = {
       ],
       genital_system: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/genital-system`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -653,11 +666,12 @@ export const form = {
       ],
       urinary_system: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/urinary-system`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -676,11 +690,12 @@ export const form = {
       ],
       heart: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/heart`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -699,11 +714,12 @@ export const form = {
       ],
       lungs: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/lungs`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -722,11 +738,12 @@ export const form = {
       ],
       abdomen: [
         {
-          type: 'checkbox',
+          type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/abdomen`,
+          multi: true,
           option_slug: 'slug',
           option_label: 'name',
           validationRules: [
@@ -909,10 +926,11 @@ export const form = {
         ],
       },
       {
-        type: 'select',
+        type: 'picker',
         slug: 'symptoms',
         label: 'Symptoms',
         placeholder: 'Select',
+        multi: true,
         options: [
           {
             label: 'Itching',
@@ -1055,7 +1073,7 @@ export const form = {
       cause_of_allergy: String,
       rashes_on_the_skin: Boolean,
       severity: String,
-      symptoms: String,
+      symptoms: [String],
       treated_by: String,
       attachment: [
         { file_path: String, file_name: String, s3_signed_url: String },
@@ -1316,8 +1334,8 @@ export const form = {
         },
         {
           type: 'select',
-          slug: 'strength',
-          label: 'Strength',
+          slug: 'unit',
+          label: 'Unit',
           placeholder: 'Select',
           options: [
             {
@@ -1396,11 +1414,14 @@ export const form = {
         ],
       },
       {
-        type: 'select',
+        type: 'picker',
         slug: 'administration',
         label: 'Administration',
         placeholder: 'Select',
-        option_url: `${process.env.TELEVET_API_URL}/masters/medication/{route}`,
+        option_url: `${process.env.TELEVET_API_URL}/masters/medication`,
+        multi: false,
+        custom: true,
+        query: 'route',
         option_method: 'GET',
         option_label: 'name',
         option_slug: 'slug',
@@ -1469,7 +1490,7 @@ export const form = {
       time: String,
       medication_name: String,
       dosage: String,
-      strength: String,
+      unit: String,
       route: String,
       administration: String,
       frequency: String,
@@ -1872,35 +1893,35 @@ export const form = {
             },
           ],
         },
-        {
-          type: 'radio',
-          slug: 'status',
-          label: 'Status',
-          options: [
-            {
-              label: 'Low',
-              value: 'low',
-            },
-            {
-              label: 'Normal',
-              value: 'normal',
-            },
-            {
-              label: 'Elevated',
-              value: 'elevated',
-            },
-            {
-              label: 'High',
-              value: 'high',
-            },
-          ],
-          validationRules: [
-            {
-              rule: 'required',
-              args: [],
-            },
-          ],
-        },
+        // {
+        //   type: 'radio',
+        //   slug: 'status',
+        //   label: 'Status',
+        //   options: [
+        //     {
+        //       label: 'Low',
+        //       value: 'low',
+        //     },
+        //     {
+        //       label: 'Normal',
+        //       value: 'normal',
+        //     },
+        //     {
+        //       label: 'Elevated',
+        //       value: 'elevated',
+        //     },
+        //     {
+        //       label: 'High',
+        //       value: 'high',
+        //     },
+        //   ],
+        //   validationRules: [
+        //     {
+        //       rule: 'required',
+        //       args: [],
+        //     },
+        //   ],
+        // },
       ],
       weight: [
         [
@@ -2115,12 +2136,13 @@ export const form = {
           },
         ],
         {
-          type: 'select',
+          type: 'picker',
           slug: 'condition',
           label: 'Condition',
           placeholder: 'Select',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/disease`,
+          multi: true,
           option_method: 'GET',
           option_label: 'name',
           option_slug: 'slug',
@@ -2164,12 +2186,13 @@ export const form = {
           },
         ],
         {
-          type: 'select',
+          type: 'picker',
           slug: 'procedure_names',
           label: 'Procedure Names',
           placeholder: 'Select',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/surgical-procedure`,
+          multi: false,
           option_method: 'GET',
           option_label: 'name',
           option_slug: 'slug',
@@ -2310,10 +2333,11 @@ export const form = {
           },
         ],
         {
-          type: 'multi-select',
+          type: 'picker',
           slug: 'clinical_sign',
           label: 'Clinical Sign',
           placeholder: 'Select',
+          multi: true,
           options: [
             {
               label: 'Scratching/licking/biting at self',
@@ -2414,10 +2438,11 @@ export const form = {
           ],
         },
         {
-          type: 'multi-select',
+          type: 'picker',
           slug: 'body_area',
           label: 'Body Area',
           placeholder: 'Select',
+          multi: true,
           options: [
             {
               label: 'Feet/paws',
@@ -2482,10 +2507,11 @@ export const form = {
           ],
         },
         {
-          type: 'multi-select',
+          type: 'picker',
           slug: 'treatment_or_medication',
           label: 'Treatment or Medication',
           placeholder: 'Select',
+          multi: true,
           options: [
             {
               label:
@@ -3209,8 +3235,8 @@ export const form = {
           },
           {
             type: 'select',
-            slug: 'strength',
-            label: 'Strength',
+            slug: 'unit',
+            label: 'Unit',
             placeholder: 'Select',
             options: [
               {
@@ -3331,7 +3357,7 @@ export const form = {
     schema: {
       date: Date,
       time: String,
-      condition: String,
+      condition: [String],
       notes: String,
       procedure_names: String,
       no_of_cycles: Number,
@@ -3348,7 +3374,7 @@ export const form = {
       dosage: String,
       no_of_times_treated_past_year: String,
       response_to_steroids: String,
-      strength: String,
+      unit: String,
       frequency: String,
       house_soiling: String,
       excessive_barking: String,
@@ -3379,12 +3405,13 @@ export const form = {
     has_list: false,
     value: [
       {
-        type: 'select',
+        type: 'picker',
         slug: 'provider_id',
         label: 'Choose Doctor',
         placeholder: 'Select',
         option_source: 'url',
         option_url: `${process.env.TELEVET_API_URL}/providers`,
+        multi: false,
         option_method: 'GET',
         option_token_type: 'Bearer',
         option_label: 'user.first_name',
