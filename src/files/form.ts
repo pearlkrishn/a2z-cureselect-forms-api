@@ -1314,10 +1314,16 @@ export const form = {
         },
       ],
       {
-        type: 'text',
+        type: 'picker',
         slug: 'medication_name',
         label: 'Medication Name',
-        placeholder: 'Enter Medication Name',
+        placeholder: 'Select Medication',
+        option_source: 'url',
+        option_url: `${process.env.TELEVET_API_URL}/masters/drug`,
+        multi: false,
+        option_method: 'GET',
+        option_label: 'name',
+        option_slug: 'slug',
         validationRules: [
           {
             rule: 'required',
@@ -1582,9 +1588,10 @@ export const form = {
           ],
         },
         {
-          type: 'slider',
+          type: 'text',
           slug: 'value',
           label: 'Value',
+          placeholder: 'Value',
           min: 0,
           max: 200,
           validationRules: [
