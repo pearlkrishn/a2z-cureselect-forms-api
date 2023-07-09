@@ -61,11 +61,11 @@ export const form = {
         placeholder: 'Complaint Title',
         validationRules: [
           {
-            rule: 'required',
+            rule: 'string',
             args: [],
           },
           {
-            rule: 'string',
+            rule: 'required',
             args: [],
           },
         ],
@@ -86,6 +86,16 @@ export const form = {
         slug: 'attachment',
         label: 'Attachment',
         extensions: ['pdf', 'doc', 'png', 'jpg'],
+        validationRules: [
+          {
+            rule: 'array',
+            args: [],
+          },
+          {
+            rule: 'of',
+            args: ['object'],
+          },
+        ],
       },
     ],
     schema: {
@@ -144,6 +154,12 @@ export const form = {
         default_action: 'add',
         default_value: 45,
         default_unit: 'days',
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+        ],
       },
     ],
     schema: {
@@ -275,11 +291,11 @@ export const form = {
         custom: true,
         validationRules: [
           {
-            rule: 'required',
+            rule: 'object',
             args: [],
           },
           {
-            rule: 'object',
+            rule: 'required',
             args: [],
           },
         ],
@@ -401,16 +417,16 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -439,16 +455,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -477,16 +493,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -515,16 +531,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -553,16 +569,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -591,16 +607,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -629,16 +645,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -667,16 +683,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -705,16 +721,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -743,16 +759,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -781,16 +797,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -819,16 +835,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -857,16 +873,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -895,16 +911,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -933,16 +949,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -971,16 +987,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -1009,16 +1025,16 @@ export const form = {
           option_label: 'name',
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'array',
               args: [],
             },
             {
               rule: 'of',
               args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -1056,11 +1072,11 @@ export const form = {
         placeholder: 'Notes Title',
         validationRules: [
           {
-            rule: 'required',
+            rule: 'string',
             args: [],
           },
           {
-            rule: 'string',
+            rule: 'required',
             args: [],
           },
         ],
@@ -1135,11 +1151,11 @@ export const form = {
         ],
         validationRules: [
           {
-            rule: 'required',
+            rule: 'string',
             args: [],
           },
           {
-            rule: 'string',
+            rule: 'required',
             args: [],
           },
         ],
@@ -1185,11 +1201,11 @@ export const form = {
         ],
         validationRules: [
           {
-            rule: 'required',
+            rule: 'object',
             args: [],
           },
           {
-            rule: 'object',
+            rule: 'required',
             args: [],
           },
         ],
@@ -1219,11 +1235,11 @@ export const form = {
         ],
         validationRules: [
           {
-            rule: 'required',
+            rule: 'object',
             args: [],
           },
           {
-            rule: 'object',
+            rule: 'required',
             args: [],
           },
         ],
@@ -1310,16 +1326,16 @@ export const form = {
         ],
         validationRules: [
           {
-            rule: 'required',
-            args: [],
-          },
-          {
             rule: 'array',
             args: [],
           },
           {
             rule: 'of',
             args: ['object'],
+          },
+          {
+            rule: 'required',
+            args: [],
           },
         ],
       },
@@ -1360,11 +1376,11 @@ export const form = {
         ],
         validationRules: [
           {
-            rule: 'required',
+            rule: 'object',
             args: [],
           },
           {
-            rule: 'object',
+            rule: 'required',
             args: [],
           },
         ],
@@ -1402,7 +1418,7 @@ export const form = {
       date: Date,
       time: String,
       cause_of_allergy: { label: String, value: String },
-      rashes_on_the_skin: Boolean,
+      rashes_on_the_skin: String,
       severity: { label: String, value: String },
       symptoms: [{ label: String, value: String }],
       treated_by: { label: String, value: String },
@@ -1455,11 +1471,11 @@ export const form = {
         placeholder: 'Enter test name',
         validationRules: [
           {
-            rule: 'required',
+            rule: 'string',
             args: [],
           },
           {
-            rule: 'string',
+            rule: 'required',
             args: [],
           },
         ],
@@ -1533,11 +1549,11 @@ export const form = {
         placeholder: 'CT, MRI, X Ray, Ultrasound..',
         validationRules: [
           {
-            rule: 'required',
+            rule: 'string',
             args: [],
           },
           {
-            rule: 'string',
+            rule: 'required',
             args: [],
           },
         ],
@@ -1611,11 +1627,11 @@ export const form = {
         placeholder: 'Treatment',
         validationRules: [
           {
-            rule: 'required',
+            rule: 'string',
             args: [],
           },
           {
-            rule: 'string',
+            rule: 'required',
             args: [],
           },
         ],
@@ -1627,11 +1643,11 @@ export const form = {
         placeholder: 'Add notes',
         validationRules: [
           {
-            rule: 'required',
+            rule: 'string',
             args: [],
           },
           {
-            rule: 'string',
+            rule: 'required',
             args: [],
           },
         ],
@@ -1693,11 +1709,11 @@ export const form = {
         option_slug: 'slug',
         validationRules: [
           {
-            rule: 'required',
+            rule: 'object',
             args: [],
           },
           {
-            rule: 'object',
+            rule: 'required',
             args: [],
           },
         ],
@@ -1821,6 +1837,10 @@ export const form = {
         option_label: 'name',
         option_slug: 'slug',
         validationRules: [
+          {
+            rule: 'object',
+            args: [],
+          },
           {
             rule: 'required',
             args: [],
@@ -1968,11 +1988,11 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'required',
+              rule: 'string',
               args: [],
             },
             {
-              rule: 'string',
+              rule: 'required',
               args: [],
             },
           ],
@@ -1993,11 +2013,11 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'required',
+              rule: 'string',
               args: [],
             },
             {
-              rule: 'string',
+              rule: 'required',
               args: [],
             },
           ],
@@ -2011,10 +2031,6 @@ export const form = {
           max: 200,
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'number',
               args: [],
             },
@@ -2025,6 +2041,10 @@ export const form = {
             {
               rule: 'max',
               args: [200],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -2052,11 +2072,11 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'required',
+              rule: 'string',
               args: [],
             },
             {
-              rule: 'string',
+              rule: 'required',
               args: [],
             },
           ],
@@ -2101,10 +2121,6 @@ export const form = {
           max: 500,
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'number',
               args: [],
             },
@@ -2115,6 +2131,10 @@ export const form = {
             {
               rule: 'max',
               args: [500],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -2142,11 +2162,11 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'required',
+              rule: 'string',
               args: [],
             },
             {
-              rule: 'string',
+              rule: 'required',
               args: [],
             },
           ],
@@ -2191,10 +2211,6 @@ export const form = {
           max: 100,
           validationRules: [
             {
-              rule: 'required',
-              args: [],
-            },
-            {
               rule: 'number',
               args: [],
             },
@@ -2205,6 +2221,10 @@ export const form = {
             {
               rule: 'max',
               args: [100],
+            },
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -2232,11 +2252,11 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'required',
+              rule: 'string',
               args: [],
             },
             {
-              rule: 'string',
+              rule: 'required',
               args: [],
             },
           ],
@@ -2298,11 +2318,11 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'required',
+              rule: 'object',
               args: [],
             },
             {
-              rule: 'object',
+              rule: 'required',
               args: [],
             },
           ],
@@ -2368,11 +2388,11 @@ export const form = {
           placeholder: 'Enter height',
           validationRules: [
             {
-              rule: 'required',
+              rule: 'number',
               args: [],
             },
             {
-              rule: 'number',
+              rule: 'required',
               args: [],
             },
           ],
@@ -2446,11 +2466,11 @@ export const form = {
           placeholder: 'Enter weight',
           validationRules: [
             {
-              rule: 'required',
+              rule: 'number',
               args: [],
             },
             {
-              rule: 'number',
+              rule: 'required',
               args: [],
             },
           ],
@@ -2479,11 +2499,11 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'required',
+              rule: 'string',
               args: [],
             },
             {
-              rule: 'string',
+              rule: 'required',
               args: [],
             },
           ],
@@ -2583,11 +2603,11 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'required',
+              rule: 'string',
               args: [],
             },
             {
-              rule: 'string',
+              rule: 'required',
               args: [],
             },
           ],
@@ -2860,6 +2880,10 @@ export const form = {
             },
           ],
           validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
             {
               rule: 'required',
               args: [],
@@ -3373,11 +3397,11 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'required',
+              rule: 'string',
               args: [],
             },
             {
-              rule: 'string',
+              rule: 'required',
               args: [],
             },
           ],
@@ -3421,11 +3445,11 @@ export const form = {
           placeholder: 'Enter name',
           validationRules: [
             {
-              rule: 'required',
+              rule: 'string',
               args: [],
             },
             {
-              rule: 'string',
+              rule: 'required',
               args: [],
             },
           ],
@@ -4216,11 +4240,11 @@ export const form = {
         ],
         validationRules: [
           {
-            rule: 'required',
+            rule: 'string',
             args: [],
           },
           {
-            rule: 'string',
+            rule: 'required',
             args: [],
           },
         ],
