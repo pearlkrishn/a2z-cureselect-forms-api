@@ -64,12 +64,22 @@ export const form = {
             rule: 'required',
             args: [],
           },
+          {
+            rule: 'string',
+            args: [],
+          },
         ],
       },
       {
         type: 'text',
         slug: 'description',
         placeholder: 'Details you think is important for us to know',
+        validationRules: [
+          {
+            rule: 'string',
+            args: [],
+          },
+        ],
       },
       {
         type: 'file',
@@ -268,6 +278,10 @@ export const form = {
             rule: 'required',
             args: [],
           },
+          {
+            rule: 'object',
+            args: [],
+          },
         ],
       },
       // {
@@ -309,18 +323,40 @@ export const form = {
             value: 'booster',
           },
         ],
+        validationRules: [
+          {
+            rule: 'string',
+            args: [],
+          },
+        ],
       },
       {
         type: 'text',
         slug: 'notes',
         label: 'Notes',
         placeholder: 'Notes...',
+        validationRules: [
+          {
+            rule: 'string',
+            args: [],
+          },
+        ],
       },
       {
         type: 'file',
         slug: 'attachment',
         label: 'Attachment',
         extensions: ['pdf', 'doc', 'png', 'jpg'],
+        validationRules: [
+          {
+            rule: 'array',
+            args: [],
+          },
+          {
+            rule: 'of',
+            args: ['object'],
+          },
+        ],
       },
     ],
     schema: {
@@ -348,6 +384,7 @@ export const form = {
           type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
+          multi: true,
           options: [
             {
               slug: 'appearance',
@@ -367,6 +404,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -374,6 +419,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       mentation: [
@@ -391,6 +442,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -398,6 +457,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       posture_and_gait: [
@@ -415,6 +480,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -422,6 +495,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       hydration_status: [
@@ -439,6 +518,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -446,6 +533,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       coat_and_skin: [
@@ -463,6 +556,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -470,6 +571,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       eyes: [
@@ -487,6 +594,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -494,6 +609,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       ears: [
@@ -511,6 +632,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -518,6 +647,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       nose_and_throat: [
@@ -535,6 +670,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -542,6 +685,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       oral_cavity: [
@@ -559,6 +708,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -566,6 +723,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       nervous_system: [
@@ -583,6 +746,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -590,6 +761,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       gastrointestinal_system: [
@@ -607,6 +784,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -614,6 +799,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       rectal_examination: [
@@ -631,6 +822,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -638,6 +837,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       genital_system: [
@@ -655,6 +860,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -662,6 +875,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       urinary_system: [
@@ -679,6 +898,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -686,6 +913,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       heart: [
@@ -703,6 +936,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -710,6 +951,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       lungs: [
@@ -727,6 +974,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -734,6 +989,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       abdomen: [
@@ -751,6 +1012,14 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
           ],
         },
         {
@@ -758,6 +1027,12 @@ export const form = {
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
     },
@@ -784,6 +1059,10 @@ export const form = {
             rule: 'required',
             args: [],
           },
+          {
+            rule: 'string',
+            args: [],
+          },
         ],
       },
       {
@@ -791,6 +1070,12 @@ export const form = {
         slug: 'description',
         label: 'Notes Description',
         placeholder: 'Notes description',
+        validationRules: [
+          {
+            rule: 'string',
+            args: [],
+          },
+        ],
       },
     ],
     schema: {
@@ -848,6 +1133,16 @@ export const form = {
             value: 'no',
           },
         ],
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+          {
+            rule: 'string',
+            args: [],
+          },
+        ],
       },
       {
         type: 'select',
@@ -893,6 +1188,10 @@ export const form = {
             rule: 'required',
             args: [],
           },
+          {
+            rule: 'object',
+            args: [],
+          },
         ],
       },
       {
@@ -921,6 +1220,10 @@ export const form = {
         validationRules: [
           {
             rule: 'required',
+            args: [],
+          },
+          {
+            rule: 'object',
             args: [],
           },
         ],
@@ -1010,6 +1313,14 @@ export const form = {
             rule: 'required',
             args: [],
           },
+          {
+            rule: 'array',
+            args: [],
+          },
+          {
+            rule: 'of',
+            args: ['object'],
+          },
         ],
       },
       {
@@ -1052,6 +1363,10 @@ export const form = {
             rule: 'required',
             args: [],
           },
+          {
+            rule: 'object',
+            args: [],
+          },
         ],
       },
       {
@@ -1059,12 +1374,28 @@ export const form = {
         slug: 'notes',
         label: 'Notes',
         placeholder: 'Add notes',
+        validationRules: [
+          {
+            rule: 'string',
+            args: [],
+          },
+        ],
       },
       {
         type: 'file',
         slug: 'attachment',
         label: 'Attachment',
         extensions: ['pdf', 'doc', 'png', 'jpg'],
+        validationRules: [
+          {
+            rule: 'array',
+            args: [],
+          },
+          {
+            rule: 'of',
+            args: ['object'],
+          },
+        ],
       },
     ],
     schema: {
@@ -1074,7 +1405,7 @@ export const form = {
       rashes_on_the_skin: Boolean,
       severity: { label: String, value: String },
       symptoms: [{ label: String, value: String }],
-      treated_by: String,
+      treated_by: { label: String, value: String },
       attachment: [
         { file_path: String, file_name: String, s3_signed_url: String },
       ],
@@ -1127,6 +1458,10 @@ export const form = {
             rule: 'required',
             args: [],
           },
+          {
+            rule: 'string',
+            args: [],
+          },
         ],
       },
       {
@@ -1134,6 +1469,16 @@ export const form = {
         slug: 'attachment',
         label: 'Attachment',
         extensions: ['pdf', 'doc', 'png', 'jpg'],
+        validationRules: [
+          {
+            rule: 'array',
+            args: [],
+          },
+          {
+            rule: 'of',
+            args: ['object'],
+          },
+        ],
       },
     ],
     schema: {
@@ -1191,6 +1536,10 @@ export const form = {
             rule: 'required',
             args: [],
           },
+          {
+            rule: 'string',
+            args: [],
+          },
         ],
       },
       {
@@ -1198,6 +1547,16 @@ export const form = {
         slug: 'attachment',
         label: 'Attachment',
         extensions: ['pdf', 'doc', 'png', 'jpg'],
+        validationRules: [
+          {
+            rule: 'array',
+            args: [],
+          },
+          {
+            rule: 'of',
+            args: ['object'],
+          },
+        ],
       },
     ],
     schema: {
@@ -1255,6 +1614,10 @@ export const form = {
             rule: 'required',
             args: [],
           },
+          {
+            rule: 'string',
+            args: [],
+          },
         ],
       },
       {
@@ -1265,6 +1628,10 @@ export const form = {
         validationRules: [
           {
             rule: 'required',
+            args: [],
+          },
+          {
+            rule: 'string',
             args: [],
           },
         ],
@@ -1329,6 +1696,10 @@ export const form = {
             rule: 'required',
             args: [],
           },
+          {
+            rule: 'object',
+            args: [],
+          },
         ],
       },
       [
@@ -1337,6 +1708,12 @@ export const form = {
           slug: 'dosage',
           label: 'Dosage',
           placeholder: 'Dosage',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -1389,6 +1766,12 @@ export const form = {
               value: 'tbs',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
       ],
       {
@@ -1416,6 +1799,12 @@ export const form = {
           {
             label: 'Intramammary',
             value: 'intramammary',
+          },
+        ],
+        validationRules: [
+          {
+            rule: 'object',
+            args: [],
           },
         ],
       },
@@ -1477,18 +1866,36 @@ export const form = {
             value: 'more_than_6_times_a_day',
           },
         ],
+        validationRules: [
+          {
+            rule: 'object',
+            args: [],
+          },
+        ],
       },
       {
         type: 'text',
         slug: 'no_of_days',
         label: 'No Of Days',
         placeholder: 'No Of Days',
+        validationRules: [
+          {
+            rule: 'string',
+            args: [],
+          },
+        ],
       },
       {
         type: 'text',
         slug: 'reason_for_medication',
         label: 'Reason For Medication',
         placeholder: 'Reason',
+        validationRules: [
+          {
+            rule: 'string',
+            args: [],
+          },
+        ],
       },
     ],
     schema: {
@@ -1564,6 +1971,10 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'string',
+              args: [],
+            },
           ],
         },
         {
@@ -1585,6 +1996,10 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'string',
+              args: [],
+            },
           ],
         },
         {
@@ -1598,6 +2013,18 @@ export const form = {
             {
               rule: 'required',
               args: [],
+            },
+            {
+              rule: 'number',
+              args: [],
+            },
+            {
+              rule: 'min',
+              args: [0],
+            },
+            {
+              rule: 'max',
+              args: [200],
             },
           ],
         },
@@ -1626,6 +2053,10 @@ export const form = {
           validationRules: [
             {
               rule: 'required',
+              args: [],
+            },
+            {
+              rule: 'string',
               args: [],
             },
           ],
@@ -1673,6 +2104,18 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'number',
+              args: [],
+            },
+            {
+              rule: 'min',
+              args: [0],
+            },
+            {
+              rule: 'max',
+              args: [500],
+            },
           ],
         },
         {
@@ -1700,6 +2143,10 @@ export const form = {
           validationRules: [
             {
               rule: 'required',
+              args: [],
+            },
+            {
+              rule: 'string',
               args: [],
             },
           ],
@@ -1747,6 +2194,18 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'number',
+              args: [],
+            },
+            {
+              rule: 'min',
+              args: [0],
+            },
+            {
+              rule: 'max',
+              args: [100],
+            },
           ],
         },
         {
@@ -1774,6 +2233,10 @@ export const form = {
           validationRules: [
             {
               rule: 'required',
+              args: [],
+            },
+            {
+              rule: 'string',
               args: [],
             },
           ],
@@ -1838,6 +2301,10 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'object',
+              args: [],
+            },
           ],
         },
         {
@@ -1852,6 +2319,12 @@ export const form = {
             {
               label: 'No',
               value: 'no',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -1896,6 +2369,10 @@ export const form = {
           validationRules: [
             {
               rule: 'required',
+              args: [],
+            },
+            {
+              rule: 'number',
               args: [],
             },
           ],
@@ -1972,6 +2449,10 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'number',
+              args: [],
+            },
           ],
         },
         {
@@ -1999,6 +2480,10 @@ export const form = {
           validationRules: [
             {
               rule: 'required',
+              args: [],
+            },
+            {
+              rule: 'string',
               args: [],
             },
           ],
@@ -2041,6 +2526,12 @@ export const form = {
           slug: 'systolic',
           label: 'Systolic',
           placeholder: 'Enter systolic',
+          validationRules: [
+            {
+              rule: 'number',
+              args: [],
+            },
+          ],
         },
         {
           type: 'text',
@@ -2048,6 +2539,12 @@ export const form = {
           slug: 'diastolic',
           label: 'Diastolic',
           placeholder: 'Enter diastolic',
+          validationRules: [
+            {
+              rule: 'number',
+              args: [],
+            },
+          ],
         },
         {
           type: 'text',
@@ -2055,6 +2552,12 @@ export const form = {
           slug: 'pulse',
           label: 'Pulse',
           placeholder: 'Enter pulse',
+          validationRules: [
+            {
+              rule: 'number',
+              args: [],
+            },
+          ],
         },
         {
           type: 'radio',
@@ -2081,6 +2584,10 @@ export const form = {
           validationRules: [
             {
               rule: 'required',
+              args: [],
+            },
+            {
+              rule: 'string',
               args: [],
             },
           ],
@@ -2153,12 +2660,28 @@ export const form = {
           option_method: 'GET',
           option_label: 'name',
           option_slug: 'slug',
+          validationRules: [
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
+          ],
         },
         {
           type: 'text',
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes..',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       surgical: [
@@ -2203,12 +2726,24 @@ export const form = {
           option_method: 'GET',
           option_label: 'name',
           option_slug: 'slug',
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'text',
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes..',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       estrus: [
@@ -2247,6 +2782,12 @@ export const form = {
           slug: 'no_of_cycles',
           label: 'No of Cycles',
           placeholder: 'Enter estrus cycle',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -2265,6 +2806,12 @@ export const form = {
             {
               label: 'Miscarriage',
               value: 'miscarriage',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
             },
           ],
         },
@@ -2291,6 +2838,12 @@ export const form = {
               value: 'all_expired',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'toggle',
@@ -2304,6 +2857,12 @@ export const form = {
             {
               label: 'No',
               value: 'no',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
             },
           ],
         },
@@ -2443,6 +3002,16 @@ export const form = {
               value: 'changes_in_urinary_habits',
             },
           ],
+          validationRules: [
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
+          ],
         },
         {
           type: 'picker',
@@ -2488,6 +3057,16 @@ export const form = {
               value: 'anal_area',
             },
           ],
+          validationRules: [
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
+          ],
         },
         {
           type: 'select',
@@ -2510,6 +3089,12 @@ export const form = {
             {
               label: 'Severely itchy',
               value: 'severely_itchy',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
             },
           ],
         },
@@ -2553,6 +3138,16 @@ export const form = {
               value: 'allergy_shots_or_drops',
             },
           ],
+          validationRules: [
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
+          ],
         },
         {
           type: 'select',
@@ -2593,6 +3188,12 @@ export const form = {
               value: 'ticks_and_fleas',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -2621,18 +3222,40 @@ export const form = {
               value: 'cured',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'text',
           slug: 'notes',
           label: 'Notes',
           placeholder: 'Add notes..',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
         {
           type: 'file',
           slug: 'attachment',
           label: 'Attachment',
           extensions: ['pdf', 'doc', 'png', 'jpg'],
+          validationRules: [
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
+          ],
         },
       ],
       diet: [
@@ -2671,18 +3294,36 @@ export const form = {
           slug: 'staple',
           label: 'Staple',
           placeholder: 'Add notes..',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
         {
           type: 'text',
           slug: 'table_food',
           label: 'Table Food',
           placeholder: 'Add notes..',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
         {
           type: 'text',
           slug: 'treats',
           label: 'Treats',
           placeholder: 'Add notes..',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       grooming: [
@@ -2735,6 +3376,10 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'string',
+              args: [],
+            },
           ],
         },
       ],
@@ -2779,6 +3424,10 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'string',
+              args: [],
+            },
           ],
         },
         {
@@ -2786,6 +3435,12 @@ export const form = {
           slug: 'remarks',
           label: 'Remarks',
           placeholder: 'Add remarks..',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
       ],
       behavior: [
@@ -2842,6 +3497,12 @@ export const form = {
               value: 'dont_know',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -2866,6 +3527,12 @@ export const form = {
               value: 'dont_know',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -2888,6 +3555,12 @@ export const form = {
             {
               label: "Don't know",
               value: 'dont_know',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
             },
           ],
         },
@@ -2922,6 +3595,12 @@ export const form = {
               value: 'attacks',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -2954,6 +3633,12 @@ export const form = {
               value: 'attacks',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -2984,6 +3669,12 @@ export const form = {
             {
               label: 'Attacks',
               value: 'attacks',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
             },
           ],
         },
@@ -3022,6 +3713,12 @@ export const form = {
               value: 'confused',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -3052,6 +3749,12 @@ export const form = {
             {
               label: 'Confused',
               value: 'confused',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
             },
           ],
         },
@@ -3086,6 +3789,12 @@ export const form = {
               value: 'confused',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -3118,6 +3827,12 @@ export const form = {
               value: 'destructive',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -3132,6 +3847,12 @@ export const form = {
             {
               label: 'Uncooperative',
               value: 'uncooperative',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
             },
           ],
         },
@@ -3164,6 +3885,12 @@ export const form = {
             {
               label: 'Confused',
               value: 'confused',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
             },
           ],
         },
@@ -3204,6 +3931,12 @@ export const form = {
           slug: 'name',
           label: 'Name',
           placeholder: 'Steroid name',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -3232,6 +3965,12 @@ export const form = {
               value: 'transdermals',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         [
           {
@@ -3239,6 +3978,12 @@ export const form = {
             slug: 'dosage',
             label: 'Dosage',
             placeholder: 'Dosage',
+            validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
+            ],
           },
           {
             type: 'select',
@@ -3291,6 +4036,12 @@ export const form = {
                 value: 'tbs',
               },
             ],
+            validationRules: [
+              {
+                rule: 'object',
+                args: [],
+              },
+            ],
           },
         ],
         {
@@ -3332,12 +4083,24 @@ export const form = {
               value: 'more_than_6_times_a_day',
             },
           ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
+            },
+          ],
         },
         {
           type: 'text',
           slug: 'no_of_times_treated_past_year',
           label: 'No of times treated past year',
           placeholder: 'No of times treated past year',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
         },
         {
           type: 'select',
@@ -3356,6 +4119,12 @@ export const form = {
             {
               label: 'Temporary Response',
               value: 'temporary_response',
+            },
+          ],
+          validationRules: [
+            {
+              rule: 'object',
+              args: [],
             },
           ],
         },
@@ -3445,18 +4214,58 @@ export const form = {
             value: 'walkin',
           },
         ],
+        validationRules: [
+          {
+            rule: 'required',
+            args: [],
+          },
+          {
+            rule: 'string',
+            args: [],
+          },
+        ],
       },
-      {
-        type: 'slots',
-        slug: 'slots',
-        range: 7,
-        range_unit: 'days',
-      },
+      [
+        {
+          type: 'date',
+          format: 'YYYY-MM-DD',
+          slug: 'date',
+          label: 'Date',
+          icon: 'calendar-blank-outline',
+          placeholder: 'YYYY / MM / DD',
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
+        },
+        {
+          type: 'time',
+          format: 'HH:mm',
+          slug: 'time',
+          label: 'Time',
+          icon: 'clock-outline',
+          placeholder: 'HH:MM',
+          validationRules: [
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
+        },
+      ],
       {
         type: 'text',
         slug: 'reason',
         label: 'Reason for Consult',
         placeholder: 'Describe',
+        validationRules: [
+          {
+            rule: 'string',
+            args: [],
+          },
+        ],
       },
     ],
   },
