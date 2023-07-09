@@ -2024,6 +2024,7 @@ export const form = {
         },
         {
           type: 'text',
+          format: 'decimal-pad',
           slug: 'value',
           label: 'Value',
           placeholder: 'Value',
@@ -2044,6 +2045,10 @@ export const form = {
             },
             {
               rule: 'required',
+              args: [],
+            },
+            {
+              rule: 'positive',
               args: [],
             },
           ],
@@ -2136,6 +2141,10 @@ export const form = {
               rule: 'required',
               args: [],
             },
+            {
+              rule: 'positive',
+              args: [],
+            },
           ],
         },
         {
@@ -2224,6 +2233,10 @@ export const form = {
             },
             {
               rule: 'required',
+              args: [],
+            },
+            {
+              rule: 'positive',
               args: [],
             },
           ],
@@ -2382,7 +2395,7 @@ export const form = {
         ],
         {
           type: 'text',
-          format: 'number',
+          format: 'number-pad',
           slug: 'height',
           label: 'Height in cm',
           placeholder: 'Enter height',
@@ -2393,6 +2406,10 @@ export const form = {
             },
             {
               rule: 'required',
+              args: [],
+            },
+            {
+              rule: 'positive',
               args: [],
             },
           ],
@@ -2460,7 +2477,7 @@ export const form = {
         ],
         {
           type: 'text',
-          format: 'number',
+          format: 'decimal-pad',
           slug: 'weight',
           label: 'Weight in kg',
           placeholder: 'Enter weight',
@@ -2471,6 +2488,10 @@ export const form = {
             },
             {
               rule: 'required',
+              args: [],
+            },
+            {
+              rule: 'positive',
               args: [],
             },
           ],
@@ -2542,7 +2563,7 @@ export const form = {
         ],
         {
           type: 'text',
-          format: 'number',
+          format: 'decimal-pad',
           slug: 'systolic',
           label: 'Systolic',
           placeholder: 'Enter systolic',
@@ -2551,11 +2572,15 @@ export const form = {
               rule: 'number',
               args: [],
             },
+            {
+              rule: 'positive',
+              args: [],
+            },
           ],
         },
         {
           type: 'text',
-          format: 'number',
+          format: 'decimal-pad',
           slug: 'diastolic',
           label: 'Diastolic',
           placeholder: 'Enter diastolic',
@@ -2564,17 +2589,25 @@ export const form = {
               rule: 'number',
               args: [],
             },
+            {
+              rule: 'positive',
+              args: [],
+            },
           ],
         },
         {
           type: 'text',
-          format: 'number',
+          format: 'decimal-pad',
           slug: 'pulse',
           label: 'Pulse',
           placeholder: 'Enter pulse',
           validationRules: [
             {
               rule: 'number',
+              args: [],
+            },
+            {
+              rule: 'positive',
               args: [],
             },
           ],
