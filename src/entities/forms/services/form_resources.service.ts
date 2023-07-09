@@ -4,15 +4,28 @@ import { CommonEntity, SearchEntity } from 'src/common/constants';
 import { form } from 'src/files/form';
 import { HelperService } from 'src/helpers.ts/model';
 import { Paginator } from 'src/helpers.ts/paginate';
+import { TelevetService } from 'src/modules/televet/televet.service';
 
 @Injectable()
 export class FormResourcesService {
-  constructor(private helperService: HelperService) {}
+  constructor(
+    private helperService: HelperService,
+    private televetService: TelevetService,
+  ) {}
 
-  async create(schema, createFormDto: any, subform = null) {
+  async create(schema, createFormDto: any, subform = null, token?) {
     if (subform) {
       createFormDto.form_type = subform;
     }
+
+    if (subform === 'weight') {
+      const weight = createFormDto.weight;
+      this.televetService.updatePetDetails(token, +createFormDto.pet_id, {
+        weight,
+        parent_id: createFormDto.owner_id,
+      });
+    }
+
     const model = await this.helperService.getSchemaModel(schema);
     return model.create(createFormDto);
   }

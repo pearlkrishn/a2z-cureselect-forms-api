@@ -8,6 +8,7 @@ import {
   Delete,
   Query,
   UseGuards,
+  Headers,
 } from '@nestjs/common';
 import { FormResourcesService } from '../services/form_resources.service';
 import { UpdateFormDto } from '../dto/update-form.dto';
@@ -27,8 +28,17 @@ export class FormResourcesController {
   constructor(private readonly formResourcesService: FormResourcesService) {}
 
   @Post('/:form')
-  async create(@Body() createFormDto, @Param('form') form: string) {
-    const data = await this.formResourcesService.create(form, createFormDto);
+  async create(
+    @Body() createFormDto,
+    @Param('form') form: string,
+    @Headers('authorization') token: string,
+  ) {
+    const data = await this.formResourcesService.create(
+      form,
+      createFormDto,
+      null,
+      token,
+    );
     return plainToInstance(CommonEntity, data.toObject());
   }
 
@@ -37,11 +47,13 @@ export class FormResourcesController {
     @Body() createFormDto,
     @Param('form') form: string,
     @Param('subform') subform: string,
+    @Headers('authorization') token: string,
   ) {
     const data = await this.formResourcesService.create(
       form,
       createFormDto,
       subform,
+      token,
     );
     return plainToInstance(CommonEntity, data.toObject());
   }
