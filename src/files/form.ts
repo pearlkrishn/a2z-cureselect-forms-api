@@ -2024,7 +2024,7 @@ export const form = {
         },
         {
           type: 'text',
-          format: 'decimal-pad',
+          format: 'decimal',
           slug: 'value',
           label: 'Value',
           placeholder: 'Value',
@@ -2395,7 +2395,7 @@ export const form = {
         ],
         {
           type: 'text',
-          format: 'number-pad',
+          format: 'number',
           slug: 'height',
           label: 'Height in cm',
           placeholder: 'Enter height',
@@ -2477,7 +2477,7 @@ export const form = {
         ],
         {
           type: 'text',
-          format: 'decimal-pad',
+          format: 'decimal',
           slug: 'weight',
           label: 'Weight in kg',
           placeholder: 'Enter weight',
@@ -2563,7 +2563,7 @@ export const form = {
         ],
         {
           type: 'text',
-          format: 'decimal-pad',
+          format: 'decimal',
           slug: 'systolic',
           label: 'Systolic',
           placeholder: 'Enter systolic',
@@ -2580,7 +2580,7 @@ export const form = {
         },
         {
           type: 'text',
-          format: 'decimal-pad',
+          format: 'decimal',
           slug: 'diastolic',
           label: 'Diastolic',
           placeholder: 'Enter diastolic',
@@ -2597,7 +2597,7 @@ export const form = {
         },
         {
           type: 'text',
-          format: 'decimal-pad',
+          format: 'decimal',
           slug: 'pulse',
           label: 'Pulse',
           placeholder: 'Enter pulse',
