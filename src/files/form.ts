@@ -34,6 +34,10 @@ export const form = {
           placeholder: 'YYYY / MM / DD',
           validationRules: [
             {
+              rule: 'string',
+              args: [],
+            },
+            {
               rule: 'required',
               args: [],
             },
@@ -47,6 +51,10 @@ export const form = {
           icon: 'clock-outline',
           placeholder: 'HH:MM',
           validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
             {
               rule: 'required',
               args: [],
@@ -124,6 +132,10 @@ export const form = {
           placeholder: 'YYYY / MM / DD',
           validationRules: [
             {
+              rule: 'string',
+              args: [],
+            },
+            {
               rule: 'required',
               args: [],
             },
@@ -137,6 +149,10 @@ export const form = {
           icon: 'clock-outline',
           placeholder: 'HH:MM',
           validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
             {
               rule: 'required',
               args: [],
@@ -155,6 +171,10 @@ export const form = {
         default_value: 45,
         default_unit: 'days',
         validationRules: [
+          {
+            rule: 'string',
+            args: [],
+          },
           {
             rule: 'required',
             args: [],
@@ -189,6 +209,10 @@ export const form = {
           placeholder: 'YYYY / MM / DD',
           validationRules: [
             {
+              rule: 'string',
+              args: [],
+            },
+            {
               rule: 'required',
               args: [],
             },
@@ -202,6 +226,10 @@ export const form = {
           icon: 'clock-outline',
           placeholder: 'HH:MM',
           validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
             {
               rule: 'required',
               args: [],
@@ -1115,6 +1143,10 @@ export const form = {
           placeholder: 'YYYY / MM / DD',
           validationRules: [
             {
+              rule: 'string',
+              args: [],
+            },
+            {
               rule: 'required',
               args: [],
             },
@@ -1128,6 +1160,10 @@ export const form = {
           icon: 'clock-outline',
           placeholder: 'HH:MM',
           validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
             {
               rule: 'required',
               args: [],
@@ -1444,6 +1480,10 @@ export const form = {
           placeholder: 'YYYY / MM / DD',
           validationRules: [
             {
+              rule: 'string',
+              args: [],
+            },
+            {
               rule: 'required',
               args: [],
             },
@@ -1457,6 +1497,10 @@ export const form = {
           icon: 'clock-outline',
           placeholder: 'HH:MM',
           validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
             {
               rule: 'required',
               args: [],
@@ -1522,6 +1566,10 @@ export const form = {
           placeholder: 'YYYY / MM / DD',
           validationRules: [
             {
+              rule: 'string',
+              args: [],
+            },
+            {
               rule: 'required',
               args: [],
             },
@@ -1535,6 +1583,10 @@ export const form = {
           icon: 'clock-outline',
           placeholder: 'HH:MM',
           validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
             {
               rule: 'required',
               args: [],
@@ -1600,6 +1652,10 @@ export const form = {
           placeholder: 'YYYY / MM / DD',
           validationRules: [
             {
+              rule: 'string',
+              args: [],
+            },
+            {
               rule: 'required',
               args: [],
             },
@@ -1613,6 +1669,10 @@ export const form = {
           icon: 'clock-outline',
           placeholder: 'HH:MM',
           validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
             {
               rule: 'required',
               args: [],
@@ -1676,6 +1736,10 @@ export const form = {
           placeholder: 'YYYY / MM / DD',
           validationRules: [
             {
+              rule: 'string',
+              args: [],
+            },
+            {
               rule: 'required',
               args: [],
             },
@@ -1689,6 +1753,10 @@ export const form = {
           icon: 'clock-outline',
           placeholder: 'HH:MM',
           validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
             {
               rule: 'required',
               args: [],
@@ -1952,6 +2020,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -1965,6 +2037,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -2098,6 +2174,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -2111,6 +2191,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -2192,6 +2276,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -2205,6 +2293,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -2286,6 +2378,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -2299,6 +2395,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -2356,6 +2456,10 @@ export const form = {
           ],
           validationRules: [
             {
+              rule: 'string',
+              args: [],
+            },
+            {
               rule: 'required',
               args: [],
             },
@@ -2373,6 +2477,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -2386,6 +2494,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -2455,6 +2567,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -2468,6 +2584,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -2541,6 +2661,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -2554,6 +2678,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -2682,6 +2810,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -2695,6 +2827,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -2748,6 +2884,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -2761,6 +2901,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -2810,6 +2954,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -2823,6 +2971,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -2935,6 +3087,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -2948,6 +3104,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -3326,6 +3486,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -3339,6 +3503,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -3394,6 +3562,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -3407,6 +3579,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -3451,6 +3627,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -3464,6 +3644,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -3511,6 +3695,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -3524,6 +3712,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -3963,6 +4155,10 @@ export const form = {
             placeholder: 'YYYY / MM / DD',
             validationRules: [
               {
+                rule: 'string',
+                args: [],
+              },
+              {
                 rule: 'required',
                 args: [],
               },
@@ -3976,6 +4172,10 @@ export const form = {
             icon: 'clock-outline',
             placeholder: 'HH:MM',
             validationRules: [
+              {
+                rule: 'string',
+                args: [],
+              },
               {
                 rule: 'required',
                 args: [],
@@ -4251,6 +4451,10 @@ export const form = {
         option_slug: 'id',
         validationRules: [
           {
+            rule: 'object',
+            args: [],
+          },
+          {
             rule: 'required',
             args: [],
           },
@@ -4292,6 +4496,10 @@ export const form = {
           placeholder: 'YYYY / MM / DD',
           validationRules: [
             {
+              rule: 'string',
+              args: [],
+            },
+            {
               rule: 'required',
               args: [],
             },
@@ -4305,6 +4513,10 @@ export const form = {
           icon: 'clock-outline',
           placeholder: 'HH:MM',
           validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
             {
               rule: 'required',
               args: [],
