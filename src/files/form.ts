@@ -369,7 +369,7 @@ export const form = {
         ],
         validationRules: [
           {
-            rule: 'string',
+            rule: 'object',
             args: [],
           },
         ],
@@ -1187,7 +1187,7 @@ export const form = {
         ],
         validationRules: [
           {
-            rule: 'string',
+            rule: 'object',
             args: [],
           },
           {
@@ -2064,7 +2064,7 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'string',
+              rule: 'object',
               args: [],
             },
             {
@@ -2089,7 +2089,7 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'string',
+              rule: 'object',
               args: [],
             },
             {
@@ -2153,7 +2153,7 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'string',
+              rule: 'object',
               args: [],
             },
             {
@@ -2255,7 +2255,7 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'string',
+              rule: 'object',
               args: [],
             },
             {
@@ -2357,7 +2357,7 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'string',
+              rule: 'object',
               args: [],
             },
             {
@@ -2456,7 +2456,7 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'string',
+              rule: 'object',
               args: [],
             },
             {
@@ -2640,7 +2640,7 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'string',
+              rule: 'object',
               args: [],
             },
             {
@@ -2764,7 +2764,7 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'string',
+              rule: 'object',
               args: [],
             },
             {
@@ -3066,7 +3066,7 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'string',
+              rule: 'object',
               args: [],
             },
             {
@@ -3606,7 +3606,7 @@ export const form = {
           ],
           validationRules: [
             {
-              rule: 'string',
+              rule: 'object',
               args: [],
             },
             {
@@ -4477,7 +4477,7 @@ export const form = {
         ],
         validationRules: [
           {
-            rule: 'string',
+            rule: 'object',
             args: [],
           },
           {
