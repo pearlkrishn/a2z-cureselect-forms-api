@@ -431,15 +431,15 @@ export const form = {
           multi: true,
           options: [
             {
-              slug: 'appearance',
+              value: 'appearance',
               label: 'Appearance',
             },
             {
-              slug: 'behaviour',
+              value: 'behaviour',
               label: 'Behaviour',
             },
             {
-              slug: 'posture',
+              value: 'posture',
               label: 'Posture',
             },
           ],
