@@ -111,8 +111,9 @@ export class FormResourcesController {
     @Body() updateFormDto: UpdateFormDto,
     @Param('form') form: string,
     @Query() query: any,
+    @Headers('authorization') token: string,
   ) {
-    return this.formResourcesService.update(form, updateFormDto, query);
+    return this.formResourcesService.update(form, updateFormDto, query, token);
   }
 
   @Delete('/:form')

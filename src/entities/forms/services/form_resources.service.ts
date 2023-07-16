@@ -132,11 +132,24 @@ export class FormResourcesService {
     return await dataQuery;
   }
 
-  async update(schema, updateFormDto, query) {
+  async update(schema, updateFormDto, query, token?) {
     const model = await this.helperService.getSchemaModel(schema);
     if (query.id) {
       query._id = query.id;
       delete query.id;
+    }
+
+    const existingData = await model.findOne({
+      deleted_at: { $exists: false },
+      ...query,
+    });
+
+    if (existingData && existingData.type && existingData.type === 'weight') {
+      const weight = updateFormDto.weight;
+      this.televetService.updatePetDetails(token, +updateFormDto.pet_id, {
+        weight,
+        parent_id: updateFormDto.owner_id,
+      });
     }
     return await model
       .findOneAndUpdate(
