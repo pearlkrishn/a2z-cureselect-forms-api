@@ -144,7 +144,11 @@ export class FormResourcesService {
       ...query,
     });
 
-    if (existingData && existingData.type && existingData.type === 'weight') {
+    if (
+      existingData &&
+      existingData.type &&
+      existingData.form_type === 'weight'
+    ) {
       const weight = updateFormDto.weight;
       this.televetService.updatePetDetails(token, +updateFormDto.pet_id, {
         weight,
