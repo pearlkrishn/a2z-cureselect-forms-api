@@ -428,21 +428,25 @@ export const form = {
           type: 'picker',
           slug: 'abnormal_symptoms',
           label: 'Abnormal Symptom(s)',
+          option_source: 'url',
+          option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/general`,
           multi: true,
-          options: [
-            {
-              value: 'appearance',
-              label: 'Appearance',
-            },
-            {
-              value: 'behaviour',
-              label: 'Behaviour',
-            },
-            {
-              value: 'posture',
-              label: 'Posture',
-            },
-          ],
+          option_slug: 'slug',
+          option_label: 'name',
+          // options: [
+          //   {
+          //     value: 'appearance',
+          //     label: 'Appearance',
+          //   },
+          //   {
+          //     value: 'behaviour',
+          //     label: 'Behaviour',
+          //   },
+          //   {
+          //     value: 'posture',
+          //     label: 'Posture',
+          //   },
+          // ],
           validationRules: [
             {
               rule: 'array',
@@ -1172,31 +1176,6 @@ export const form = {
         },
       ],
       {
-        type: 'toggle',
-        slug: 'rashes_on_the_skin',
-        label: 'Rashes on the Skin',
-        options: [
-          {
-            label: 'Yes',
-            value: 'yes',
-          },
-          {
-            label: 'No',
-            value: 'no',
-          },
-        ],
-        validationRules: [
-          {
-            rule: 'object',
-            args: [],
-          },
-          {
-            rule: 'required',
-            args: [],
-          },
-        ],
-      },
-      {
         type: 'select',
         slug: 'cause_of_allergy',
         label: 'Cause of Allergy',
@@ -1286,80 +1265,85 @@ export const form = {
         label: 'Symptoms',
         placeholder: 'Select',
         multi: true,
-        options: [
-          {
-            label: 'Itching',
-            value: 'itching',
-          },
-          {
-            label: 'Rashes',
-            value: 'rashes',
-          },
-          {
-            label: 'Hives',
-            value: 'hives',
-          },
-          {
-            label: 'Hairloss',
-            value: 'hairloss',
-          },
-          {
-            label: 'Watering eyes',
-            value: 'watering_eyes',
-          },
-          {
-            label: 'Sneezing',
-            value: 'sneezing',
-          },
-          {
-            label: 'Difficulty breathing',
-            value: 'difficulty_breathing',
-          },
-          {
-            label: 'Wheezing',
-            value: 'wheezing',
-          },
-          {
-            label: 'Retching',
-            value: 'retching',
-          },
-          {
-            label: 'Hyperventilation',
-            value: 'hyperventilation',
-          },
-          {
-            label: 'Swelling of the face, ears, lips, eyelids, or earflaps',
-            value: 'swelling_of_the_face_ears_lips_eyelids_or_earflaps',
-          },
-          {
-            label: 'Red, inflamed skin',
-            value: 'red_inflamed_skin',
-          },
-          {
-            label: 'Diarrhea',
-            value: 'diarrhea',
-          },
-          {
-            label: 'Vomiting',
-            value: 'vomiting',
-          },
-          {
-            label: 'Itchy ears',
-            value: 'itchy_ears',
-          },
-          {
-            label: 'Chronic ear infections',
-            value: 'chronic_ear_infections',
-          },
-          {
-            label: 'Itchy, runny eyes',
-            value: 'itchy_runny_eyes',
-          },
-          {
-            label: 'Constant licking',
-            value: 'constant_licking',
-          },
-        ],
+        option_source: 'url',
+        option_url: `${process.env.TELEVET_API_URL}/masters/allergy/symptoms`,
+        option_method: 'GET',
+        option_label: 'name',
+        option_slug: 'slug',
+        // options: [
+        //   {
+        //     label: 'Itching',
+        //     value: 'itching',
+        //   },
+        //   {
+        //     label: 'Rashes',
+        //     value: 'rashes',
+        //   },
+        //   {
+        //     label: 'Hives',
+        //     value: 'hives',
+        //   },
+        //   {
+        //     label: 'Hairloss',
+        //     value: 'hairloss',
+        //   },
+        //   {
+        //     label: 'Watering eyes',
+        //     value: 'watering_eyes',
+        //   },
+        //   {
+        //     label: 'Sneezing',
+        //     value: 'sneezing',
+        //   },
+        //   {
+        //     label: 'Difficulty breathing',
+        //     value: 'difficulty_breathing',
+        //   },
+        //   {
+        //     label: 'Wheezing',
+        //     value: 'wheezing',
+        //   },
+        //   {
+        //     label: 'Retching',
+        //     value: 'retching',
+        //   },
+        //   {
+        //     label: 'Hyperventilation',
+        //     value: 'hyperventilation',
+        //   },
+        //   {
+        //     label: 'Swelling of the face, ears, lips, eyelids, or earflaps',
+        //     value: 'swelling_of_the_face_ears_lips_eyelids_or_earflaps',
+        //   },
+        //   {
+        //     label: 'Red, inflamed skin',
+        //     value: 'red_inflamed_skin',
+        //   },
+        //   {
+        //     label: 'Diarrhea',
+        //     value: 'diarrhea',
+        //   },
+        //   {
+        //     label: 'Vomiting',
+        //     value: 'vomiting',
+        //   },
+        //   {
+        //     label: 'Itchy ears',
+        //     value: 'itchy_ears',
+        //   },
+        //   {
+        //     label: 'Chronic ear infections',
+        //     value: 'chronic_ear_infections',
+        //   },
+        //   {
+        //     label: 'Itchy, runny eyes',
+        //     value: 'itchy_runny_eyes',
+        //   },
+        //   {
+        //     label: 'Constant licking',
+        //     value: 'constant_licking',
+        //   },
+        // ],
         validationRules: [
           {
             rule: 'array',
@@ -1963,12 +1947,13 @@ export const form = {
       },
       {
         type: 'text',
+        format: 'number',
         slug: 'no_of_days',
         label: 'No Of Days',
         placeholder: 'No Of Days',
         validationRules: [
           {
-            rule: 'string',
+            rule: 'number',
             args: [],
           },
         ],
@@ -1995,7 +1980,7 @@ export const form = {
       route: { label: String, value: String },
       administration: { label: String, value: String },
       frequency: { label: String, value: String },
-      no_of_days: String,
+      no_of_days: Number,
       reason_for_medication: String,
       status: {
         type: String,
@@ -2984,12 +2969,13 @@ export const form = {
         ],
         {
           type: 'text',
+          format: 'number',
           slug: 'no_of_cycles',
           label: 'No of Cycles',
           placeholder: 'Enter estrus cycle',
           validationRules: [
             {
-              rule: 'string',
+              rule: 'number',
               args: [],
             },
           ],
@@ -3121,104 +3107,109 @@ export const form = {
           label: 'Clinical Sign',
           placeholder: 'Select',
           multi: true,
-          options: [
-            {
-              label: 'Scratching/licking/biting at self',
-              value: 'scratching_licking_biting_at_self',
-            },
-            {
-              label: 'Hair loss or poor regrowth of hair',
-              value: 'hair_loss_or_poor_regrowth_of_hair',
-            },
-            {
-              label: 'Increased redness to skin',
-              value: 'increased_redness_to_skin',
-            },
-            {
-              label: 'Small red spots, pimples, bumps, rash',
-              value: 'small_red_spots_pimples_bumps_rash',
-            },
-            {
-              label: 'Dandruff, flakiness, scaliness of skin',
-              value: 'dandruff_flakiness_scaliness_of_skin',
-            },
-            {
-              label: 'Increased odor of skin or coat',
-              value: 'increased_odor_of_skin_or_coat',
-            },
-            {
-              label: 'Crusty or scabby patches on skin',
-              value: 'crusty_or_scabby_patches_on_skin',
-            },
-            {
-              label: 'Open, raw sores',
-              value: 'open_raw_sores',
-            },
-            {
-              label: 'Areas that ooze blood or pus',
-              value: 'areas_that_ooze_blood_or_pus',
-            },
-            {
-              label: 'Eyes-redness, irritation, itching, discharge',
-              value: 'eyes_redness_irritation_itching_discharge',
-            },
-            {
-              label: 'Change in color or texture of hair',
-              value: 'change_in_color_or_texture_of_hair',
-            },
-            {
-              label: 'Darkening of areas of the skin',
-              value: 'darkening_of_areas_of_the_skin',
-            },
-            {
-              label: 'Loss of pigment of skin-black parts turn pink',
-              value: 'loss_of_pigment_of_skin_black_parts_turn_pink',
-            },
-            {
-              label: 'Ear infections',
-              value: 'ear_infections',
-            },
-            {
-              label: 'Fleas seen on pet',
-              value: 'fleas_seen_on_pet',
-            },
-            {
-              label: 'Diarrhea or loose stools',
-              value: 'diarrhea_or_loose_stools',
-            },
-            {
-              label: 'Vomiting',
-              value: 'vomiting',
-            },
-            {
-              label: 'Sneezing or wheezing',
-              value: 'sneezing_or_wheezing',
-            },
-            {
-              label: "Changes in pet's usual personality",
-              value: 'changes_in_pets_usual_personality',
-            },
-            {
-              label: "Changes in pet's usual activity level",
-              value: 'changes_in_pets_usual_activity_level',
-            },
-            {
-              label: 'Weight loss or weight gain',
-              value: 'weight_loss_or_weight_gain',
-            },
-            {
-              label: "Changes in pet's appetite",
-              value: 'changes_in_pets_appetite',
-            },
-            {
-              label: 'Changes in amount of water consumed',
-              value: 'changes_in_amount_of_water_consumed',
-            },
-            {
-              label: 'Changes in urinary habits',
-              value: 'changes_in_urinary_habits',
-            },
-          ],
+          option_source: 'url',
+          option_url: `${process.env.TELEVET_API_URL}/dermal/clinical_sign`,
+          option_method: 'GET',
+          option_label: 'name',
+          option_slug: 'slug',
+          // options: [
+          //   {
+          //     label: 'Scratching/licking/biting at self',
+          //     value: 'scratching_licking_biting_at_self',
+          //   },
+          //   {
+          //     label: 'Hair loss or poor regrowth of hair',
+          //     value: 'hair_loss_or_poor_regrowth_of_hair',
+          //   },
+          //   {
+          //     label: 'Increased redness to skin',
+          //     value: 'increased_redness_to_skin',
+          //   },
+          //   {
+          //     label: 'Small red spots, pimples, bumps, rash',
+          //     value: 'small_red_spots_pimples_bumps_rash',
+          //   },
+          //   {
+          //     label: 'Dandruff, flakiness, scaliness of skin',
+          //     value: 'dandruff_flakiness_scaliness_of_skin',
+          //   },
+          //   {
+          //     label: 'Increased odor of skin or coat',
+          //     value: 'increased_odor_of_skin_or_coat',
+          //   },
+          //   {
+          //     label: 'Crusty or scabby patches on skin',
+          //     value: 'crusty_or_scabby_patches_on_skin',
+          //   },
+          //   {
+          //     label: 'Open, raw sores',
+          //     value: 'open_raw_sores',
+          //   },
+          //   {
+          //     label: 'Areas that ooze blood or pus',
+          //     value: 'areas_that_ooze_blood_or_pus',
+          //   },
+          //   {
+          //     label: 'Eyes-redness, irritation, itching, discharge',
+          //     value: 'eyes_redness_irritation_itching_discharge',
+          //   },
+          //   {
+          //     label: 'Change in color or texture of hair',
+          //     value: 'change_in_color_or_texture_of_hair',
+          //   },
+          //   {
+          //     label: 'Darkening of areas of the skin',
+          //     value: 'darkening_of_areas_of_the_skin',
+          //   },
+          //   {
+          //     label: 'Loss of pigment of skin-black parts turn pink',
+          //     value: 'loss_of_pigment_of_skin_black_parts_turn_pink',
+          //   },
+          //   {
+          //     label: 'Ear infections',
+          //     value: 'ear_infections',
+          //   },
+          //   {
+          //     label: 'Fleas seen on pet',
+          //     value: 'fleas_seen_on_pet',
+          //   },
+          //   {
+          //     label: 'Diarrhea or loose stools',
+          //     value: 'diarrhea_or_loose_stools',
+          //   },
+          //   {
+          //     label: 'Vomiting',
+          //     value: 'vomiting',
+          //   },
+          //   {
+          //     label: 'Sneezing or wheezing',
+          //     value: 'sneezing_or_wheezing',
+          //   },
+          //   {
+          //     label: "Changes in pet's usual personality",
+          //     value: 'changes_in_pets_usual_personality',
+          //   },
+          //   {
+          //     label: "Changes in pet's usual activity level",
+          //     value: 'changes_in_pets_usual_activity_level',
+          //   },
+          //   {
+          //     label: 'Weight loss or weight gain',
+          //     value: 'weight_loss_or_weight_gain',
+          //   },
+          //   {
+          //     label: "Changes in pet's appetite",
+          //     value: 'changes_in_pets_appetite',
+          //   },
+          //   {
+          //     label: 'Changes in amount of water consumed',
+          //     value: 'changes_in_amount_of_water_consumed',
+          //   },
+          //   {
+          //     label: 'Changes in urinary habits',
+          //     value: 'changes_in_urinary_habits',
+          //   },
+          // ],
           validationRules: [
             {
               rule: 'array',
@@ -3236,44 +3227,49 @@ export const form = {
           label: 'Body Area',
           placeholder: 'Select',
           multi: true,
-          options: [
-            {
-              label: 'Feet/paws',
-              value: 'feet_paws',
-            },
-            {
-              label: 'Legs/arms',
-              value: 'legs_arms',
-            },
-            {
-              label: 'Abdomen (belly)/genital area',
-              value: 'abdomen_belly_genital_area',
-            },
-            {
-              label: 'Armpits/chest/sides of body',
-              value: 'armpits_chest_sides_of_body',
-            },
-            {
-              label: 'Face/eyes',
-              value: 'face_eyes',
-            },
-            {
-              label: 'Ears/ear flaps',
-              value: 'ears_ear_flaps',
-            },
-            {
-              label: 'Along the back or rump',
-              value: 'along_the_back_or_rump',
-            },
-            {
-              label: 'The tail itself',
-              value: 'the_tail_itself',
-            },
-            {
-              label: 'Anal area',
-              value: 'anal_area',
-            },
-          ],
+          option_source: 'url',
+          option_url: `${process.env.TELEVET_API_URL}/dermal/body_area`,
+          option_method: 'GET',
+          option_label: 'name',
+          option_slug: 'slug',
+          // options: [
+          //   {
+          //     label: 'Feet/paws',
+          //     value: 'feet_paws',
+          //   },
+          //   {
+          //     label: 'Legs/arms',
+          //     value: 'legs_arms',
+          //   },
+          //   {
+          //     label: 'Abdomen (belly)/genital area',
+          //     value: 'abdomen_belly_genital_area',
+          //   },
+          //   {
+          //     label: 'Armpits/chest/sides of body',
+          //     value: 'armpits_chest_sides_of_body',
+          //   },
+          //   {
+          //     label: 'Face/eyes',
+          //     value: 'face_eyes',
+          //   },
+          //   {
+          //     label: 'Ears/ear flaps',
+          //     value: 'ears_ear_flaps',
+          //   },
+          //   {
+          //     label: 'Along the back or rump',
+          //     value: 'along_the_back_or_rump',
+          //   },
+          //   {
+          //     label: 'The tail itself',
+          //     value: 'the_tail_itself',
+          //   },
+          //   {
+          //     label: 'Anal area',
+          //     value: 'anal_area',
+          //   },
+          // ],
           validationRules: [
             {
               rule: 'array',
@@ -3321,40 +3317,45 @@ export const form = {
           label: 'Treatment or Medication',
           placeholder: 'Select',
           multi: true,
-          options: [
-            {
-              label:
-                'Cortisone pills or shots (steroids, Temaril, prednisone, Vetalog, anti-itch pills)',
-              value:
-                'cortisone_pills_or_shots_steroids_temaril_prednisone_vetalog_anti_itch_pills',
-            },
-            {
-              label:
-                'Antibiotics alone (with no other medication given at the same time)',
-              value:
-                'antibiotics_alone_with_no_other_medication_given_at_the_same_time',
-            },
-            {
-              label: 'Antihistamine (Benadryl, Zyrtec, etc.)',
-              value: 'antihistamine_benadryl_zyrtec_etc',
-            },
-            {
-              label: 'Antifungal medication (Nizoral, etc.)',
-              value: 'antifungal_medication_nizoral_etc',
-            },
-            {
-              label: 'Cyclosporine (Atopica)',
-              value: 'cyclosporine_atopica',
-            },
-            {
-              label: 'Apoquel',
-              value: 'apoquel',
-            },
-            {
-              label: 'Allergy shots or drops',
-              value: 'allergy_shots_or_drops',
-            },
-          ],
+          option_source: 'url',
+          option_url: `${process.env.TELEVET_API_URL}/dermal/treatment_or_medication`,
+          option_method: 'GET',
+          option_label: 'name',
+          option_slug: 'slug',
+          // options: [
+          //   {
+          //     label:
+          //       'Cortisone pills or shots (steroids, Temaril, prednisone, Vetalog, anti-itch pills)',
+          //     value:
+          //       'cortisone_pills_or_shots_steroids_temaril_prednisone_vetalog_anti_itch_pills',
+          //   },
+          //   {
+          //     label:
+          //       'Antibiotics alone (with no other medication given at the same time)',
+          //     value:
+          //       'antibiotics_alone_with_no_other_medication_given_at_the_same_time',
+          //   },
+          //   {
+          //     label: 'Antihistamine (Benadryl, Zyrtec, etc.)',
+          //     value: 'antihistamine_benadryl_zyrtec_etc',
+          //   },
+          //   {
+          //     label: 'Antifungal medication (Nizoral, etc.)',
+          //     value: 'antifungal_medication_nizoral_etc',
+          //   },
+          //   {
+          //     label: 'Cyclosporine (Atopica)',
+          //     value: 'cyclosporine_atopica',
+          //   },
+          //   {
+          //     label: 'Apoquel',
+          //     value: 'apoquel',
+          //   },
+          //   {
+          //     label: 'Allergy shots or drops',
+          //     value: 'allergy_shots_or_drops',
+          //   },
+          // ],
           validationRules: [
             {
               rule: 'array',
@@ -4349,12 +4350,13 @@ export const form = {
         },
         {
           type: 'text',
+          format: 'number',
           slug: 'no_of_times_treated_past_year',
           label: 'No of times treated past year',
           placeholder: 'No of times treated past year',
           validationRules: [
             {
-              rule: 'string',
+              rule: 'number',
               args: [],
             },
           ],
@@ -4405,7 +4407,7 @@ export const form = {
       name: String,
       remarks: String,
       dosage: String,
-      no_of_times_treated_past_year: String,
+      no_of_times_treated_past_year: Number,
       response_to_steroids: { label: String, value: String },
       unit: { label: String, value: String },
       frequency: { label: String, value: String },
