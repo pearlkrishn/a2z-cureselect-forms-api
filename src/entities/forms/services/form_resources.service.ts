@@ -217,7 +217,7 @@ export class FormResourcesService {
         const data = await this.findAll(key, query, null, null);
         summary.push({
           name: file[key].name,
-          slug: key,
+          slug: key !== 'exams' ? key : 'ros',
           data: data.data?.map((d) => plainToInstance(CommonEntity, d)),
         });
       }

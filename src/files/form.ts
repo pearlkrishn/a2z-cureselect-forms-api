@@ -419,8 +419,8 @@ export const form = {
     },
   },
   exams: {
-    name: 'Exams',
-    slug: 'exams',
+    name: 'Ros',
+    slug: 'ros',
     has_list: true,
     value: {
       general: [
@@ -430,6 +430,58 @@ export const form = {
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/general`,
+          multi: true,
+          option_slug: 'slug',
+          option_label: 'name',
+          // options: [
+          //   {
+          //     value: 'appearance',
+          //     label: 'Appearance',
+          //   },
+          //   {
+          //     value: 'behaviour',
+          //     label: 'Behaviour',
+          //   },
+          //   {
+          //     value: 'posture',
+          //     label: 'Posture',
+          //   },
+          // ],
+          validationRules: [
+            {
+              rule: 'array',
+              args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
+            },
+            {
+              rule: 'required',
+              args: [],
+            },
+          ],
+        },
+        {
+          type: 'text',
+          slug: 'notes',
+          label: 'Notes',
+          placeholder: 'Add notes',
+          validationRules: [
+            {
+              rule: 'string',
+              args: [],
+            },
+          ],
+        },
+      ],
+      body_condition: [
+        {
+          type: 'picker',
+          slug: 'abnormal_symptoms',
+          label: 'Abnormal Symptom(s)',
+          option_source: 'url',
+          option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/body-condition`,
           multi: true,
           option_slug: 'slug',
           option_label: 'name',
