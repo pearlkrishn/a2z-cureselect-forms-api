@@ -187,7 +187,10 @@ export const form = {
       time: String,
       last_deworming_date: Date,
       next_deworming_date: Date,
-      status: String,
+      status: {
+        type: String,
+        default: 'pending',
+      },
       dewormings: [
         { date: Date, time: String, next_deworming_date: Date, status: String },
       ],
@@ -3420,48 +3423,59 @@ export const form = {
           ],
         },
         {
-          type: 'select',
+          type: 'picker',
           slug: 'cause',
           label: 'Cause',
           placeholder: 'Select',
-          options: [
-            {
-              label: 'Environmental Allergies',
-              value: 'environmental_allergies',
-            },
-            {
-              label: 'Food Allergies',
-              value: 'food_allergies',
-            },
-            {
-              label: 'Folliculitis',
-              value: 'folliculitis',
-            },
-            {
-              label: 'Impetigo',
-              value: 'impetigo',
-            },
-            {
-              label: 'Ringworm',
-              value: 'ringworm',
-            },
-            {
-              label: 'Mange',
-              value: 'mange',
-            },
-            {
-              label: 'Yeast Infections',
-              value: 'yeast_infections',
-            },
-            {
-              label: 'Ticks and Fleas',
-              value: 'ticks_and_fleas',
-            },
-          ],
+          multi: true,
+          custom: true,
+          option_source: 'url',
+          option_url: `${process.env.TELEVET_API_URL}/masters/dermal/cause`,
+          option_method: 'GET',
+          option_label: 'name',
+          option_slug: 'slug',
+          // options: [
+          //   {
+          //     label: 'Environmental Allergies',
+          //     value: 'environmental_allergies',
+          //   },
+          //   {
+          //     label: 'Food Allergies',
+          //     value: 'food_allergies',
+          //   },
+          //   {
+          //     label: 'Folliculitis',
+          //     value: 'folliculitis',
+          //   },
+          //   {
+          //     label: 'Impetigo',
+          //     value: 'impetigo',
+          //   },
+          //   {
+          //     label: 'Ringworm',
+          //     value: 'ringworm',
+          //   },
+          //   {
+          //     label: 'Mange',
+          //     value: 'mange',
+          //   },
+          //   {
+          //     label: 'Yeast Infections',
+          //     value: 'yeast_infections',
+          //   },
+          //   {
+          //     label: 'Ticks and Fleas',
+          //     value: 'ticks_and_fleas',
+          //   },
+          // ],
           validationRules: [
             {
-              rule: 'object',
+              rule: 'array',
               args: [],
+            },
+            {
+              rule: 'of',
+              args: ['object'],
             },
           ],
         },
@@ -4480,7 +4494,7 @@ export const form = {
       body_area: [{ label: String, value: String }],
       itching: { label: String, value: String },
       treatment_or_medication: [{ label: String, value: String }],
-      cause: { label: String, value: String },
+      cause: [{ label: String, value: String }],
       improvement: { label: String, value: String },
       on_a_leash_or_collar: { label: String, value: String },
       ...defaultSchema,
