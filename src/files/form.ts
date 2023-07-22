@@ -4497,6 +4497,9 @@ export const form = {
       cause: [{ label: String, value: String }],
       improvement: { label: String, value: String },
       on_a_leash_or_collar: { label: String, value: String },
+      attachment: [
+        { file_path: String, file_name: String, s3_signed_url: String },
+      ],
       ...defaultSchema,
     },
   },
