@@ -127,7 +127,7 @@ export const form = {
           type: 'date',
           format: 'YYYY-MM-DD',
           slug: 'date',
-          label: 'Date',
+          label: 'Current Deworming Date',
           icon: 'calendar-blank-outline',
           placeholder: 'YYYY / MM / DD',
           validationRules: [
