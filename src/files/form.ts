@@ -485,7 +485,7 @@ export const form = {
           label: 'Abnormal Symptom(s)',
           option_source: 'url',
           option_url: `${process.env.TELEVET_API_URL}/masters/abnormality/body-condition`,
-          multi: true,
+          multi: false,
           option_slug: 'slug',
           option_label: 'name',
           // options: [
